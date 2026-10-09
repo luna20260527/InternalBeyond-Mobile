@@ -1,9 +1,6 @@
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg">
-  <img alt="Internal Beyond · Mobile" src="assets/readme/banner-light.svg" width="100%">
-</picture>
+<img alt="InternalBeyond-Mobile — 边界之外" src="assets/readme/banner-light.svg" width="100%">
 
 <p><b>Internal Beyond 的移动端同源版本</b><br><sub>IB-Mobile · IB机 · 一个 HTML 文件，装进浏览器就是一个世界</sub></p>
 
@@ -27,7 +24,7 @@
 </div>
 
 > [!TIP]
-> 一个离线运行的单文件个人网站应用，旨于维系情感的连续性：15 个核心模块、内置的共读间、一个可安装的桌面 APP（观影室）、一位内置小助手（水水）与 2 套视觉主题，支持同时对接多个 AI 模型。**所有数据储存在本地浏览器，不依赖任何网络服务器**；与电脑端： [Internal Beyond](https://github.com/Sui-IB/InternalBeyond) 使用同一套备份文件互相导入导出。
+> 一个离线运行的单文件个人网站应用，旨于维系情感的连续性：15 个核心模块、内置的共读间、一个可安装的桌面 APP（观影室）、一位内置小助手（水水）与 2 套视觉主题，支持同时对接多个 AI 模型。**所有数据储存在本地浏览器，不依赖任何网络服务器**；与电脑端 [Internal Beyond](https://github.com/Sui-IB/InternalBeyond) 使用同一套备份文件互相导入导出，记忆系统 AGB 两端同一份召回核心。
 
 <!-- 宣传图 / 截图：把图片拖进本仓库任意 Issue 的输入框，GitHub 会生成一条图片链接；替换下面的链接后删掉这两行注释符号即可。建议三张竖屏截图并排。
 <p align="center">
@@ -55,7 +52,7 @@
 
 **记忆与记录**
 
-- **Memory** · 情感记忆库与每位 AI 独立维护的 Auto Memory 档案，自动注入上下文
+- **Memory** · AGB 记忆系统（The Abyss Gazing Back）：记忆库 + 每位 AI 独立维护的记忆档案，聊到才想起、每轮只给相关的几条；Nameless Coastline 海岸可视化、脉络、透视区可查可纠
 - **Blog** · 日志、密码日记本、分类书架，AI 留言与段落批注
 - **Calendar** · 日历 App 与月历挂件，TA 记得你的纪念日、计划与生理期
 - **Circle** · 你与 AI 共享的社交圈：动态、评论、转发，逐条可见范围
@@ -194,13 +191,23 @@ Blog 是创作空间：日记、剧本、搜索、阅读进度，密码日记本
 </details>
 
 <details>
-<summary><b>Memory</b></summary>
+<summary><b>Memory</b> · AGB 记忆系统</summary>
 
-**Memory**：长期情感记忆库 — 情感坐标 + 自然衰减 + 按关键词截取窗口的上下文自动注入（命中按标签 › 概述 › 正文加权）；**Auto Memory** 为每个 AI 独立维护的认知档案（六分类、三级优先）；**记忆总结**从一段时间的材料里提炼档案条目（材料过长自动分两阶段：先分离素材卡片再铸型；抽屉里有进度卡、可停止、可翻看压缩前的素材与原始材料）
+**Memory**：AGB（The Abyss Gazing Back · 深渊回望）—— IB 的长期记忆系统。两本账：**记忆库**记某一次发生的事，所有 TA 共用（按可见范围）；**记忆档案（Auto Memory）**记你一直如此的样子，每位 TA 一本。TA 回话前只注入与这句话相关的少量条目，想起了什么、凭什么想起，都可查、可纠正。
 
 > Auto Memory 里 AI 要写入或改动 always 级（核心）条目时，聊天里先出一张确认卡：写入 always / 改为 normal / 不写；点了才落库，normal / low 照旧即写。always 条目随人设一起进 system 被提示缓存记住，只在这些条目本身改动时重建一次。
 
-记忆库：「我们之间的记忆。」情感坐标（效价 / 唤醒度）、重要性与自然衰减，按预算自动注入上下文；可授权 TA 在对话中写入（默认仅 TA 自己可见）。Auto Memory：「你对我的了解。」每个 AI 独立维护的认知档案，六分类、always / normal / low 三级优先，AI 自主创建更新，你可随时编辑删除。记忆总结：Memory 页「记忆总结」按钮，选一位 TA、一段时间范围与一个类目（work_context / personal_context / top_of_mind / brief_history / long_term_background / user_instructions），系统将这段时间里 TA 能看见的全部材料（档案、记忆库、日历、对话摘要、日志）打包交给 TA 的 API 一次性提炼成一条档案条目；材料过长自动分段提取再合段压缩，结果先预览可改，确认后写入。
+**记忆库**：「我们之间的记忆。」每条记忆带标题、概述、正文、领域标签、事发日期与重要性；可见范围四种（公开 / 仅指定 / 排除指定 / 完全私密）；置顶的每轮常驻（最多 20 条）；不再成立的「标为过时」，平时不给，你说「以前」时才给。可授权 TA 在对话中写入（默认仅它自己可见，带「待审核」小签）。
+
+**一轮召回**：寒暄不翻库；这条记忆的标签在你的话里，或字面、意思对得上，才过门；过了门的按相关、新旧、重要性排先后；每轮最多 1～3 条（Memory 卡里选），够不上最强那条一半的不给；没有合适的就一条不给。明说「还记得」「你说过」时门会放宽；话里有时间（上周、去年 3 月）时那段时间的记忆排前。八条召回规则与每个开关管什么，问水水「记忆攻略」。
+
+**Gazing Back · 回望标**：TA 回话时间后面的「Gazing Back N」是这一轮想起了几条，点开看是哪几条、凭什么想起，可标「过时」「不相关」。
+
+**透视区 · Fathom**：Memory 页底栏第三格。最上面是 **Nameless Coastline**——每一条记忆化为岸边的一粒星砂，效价决定沿岸位置、唤醒度决定离水远近；下面是脉络（反复露面的事串成一条线，你点「同意」才算，TA 想起其中一页时会连同这条线的观察一起看到）、最近几轮想起了什么与差一点的、整理标签、测评跑一遍。
+
+**记忆档案（Auto Memory）**：「你对我的了解。」六分类、always / normal / low 三级优先；档案里写着「谁是谁」的条目会自动和记忆库连上——话里出现这个名字这条档案就出来，还能顺着档案牵出记忆库里最贴的一条。**记忆总结**：Memory 页按钮，选一位 TA、一段时间范围与一个类目，把这段时间 TA 能看见的材料交给它一次提炼成一条档案条目；材料过长自动分两阶段（先分离素材卡片再铸型），抽屉里有进度卡、可停止、可翻看压缩前的素材，写好可改，确认后写入。
+
+**向量检索**：API 页 → 全局设置 → 记忆系统填服务商、Key、模型后「重建索引」，换个说法也想得起；门槛收在「高级」里。记忆内容只发给你填的向量服务商，完全私密的不发；连不上的那一轮自动退回关键词。
 
 </details>
 
@@ -310,7 +317,7 @@ IB 支持多种 AI 服务：
 
 - **导出**：Data 页 → 导出备份文件，覆盖全部本地模块（名片与设置、API 配置、聊天与话题、收藏夹、记忆库与 Auto Memory、日历与便笺、日志 / 批注 / 分类、信件、社交圈动态、ICode 工作区、共读与观影记录等），与电脑版互认同一套备份格式。
 - **导入**：选择电脑版或手机版的 JSON 备份，同 id 记录以文件为准，其余不受影响；手机端不认识的模块自动跳过。
-- **两端分工**：语音转写、记忆系统、外部工具、日历设置与每个 AI 的接口参数两端共用、改动互通；手机专属的显示偏好、锁屏与 MCP 配置单独存放，电脑版不读不写，随备份原样往返。
+- **两端分工**：语音转写、记忆系统（AGB：记忆库、档案、脉络目录、测评题目、召回设置）、外部工具、日历设置与每个 AI 的接口参数两端共用、改动互通；手机专属的显示偏好、锁屏与 MCP 配置单独存放，电脑版不读不写，随备份原样往返。
 - **存储**：浏览器 IndexedDB（InternalBeyondDB），完全离线；API 密钥仅存本机，仓库文件里不含任何密钥。
 - **⚠ 备份建议**：数据仅存于浏览器本地，清除浏览器数据或换浏览器将永久丢失，请定期导出。
 
@@ -344,12 +351,13 @@ COPYRIGHT.md          ← 完整版权与许可声明
 - **字体**：Noto Serif SC · Noto Sans SC 等（Google Fonts CDN，在页面加载完成后再非阻塞挂上；离线时用系统字体，不拖住启动）。
 - **视觉**：CSS 液态玻璃拟态、双主题交叉过渡、iOS 式锁屏与桌面。
 - **AI 协议**：Anthropic 原生格式 + OpenAI 兼容格式 + Gemini，覆盖官方及中转站 API。
-- **构建**：Claude (Opus 4.6) 构建 · Opus 4.8 / Sonnet 4.6 / Fable 5 / Fable 5.1 / Opus 5 / ChatGPT 5.6 Sol 参与辅助构建 · GPT-IMAGE-2 贴图 · Adobe Photoshop CS 设计编绘。
+- **构建**：Claude (Opus 4.6) 构建 · Claude (Fable 5.1) · Claude (Opus 5.5) · Claude (Opus 4.8) · Claude (Sonnet 4.6) · Claude (Fable 5) · Claude (Opus 5) · ChatGPT (5.6 Sol) 参与辅助构建 · GPT-IMAGE-2 贴图 · Adobe Photoshop CS 设计编绘。
 
 ---
 
 ## ✦ 最近更新
 
+- **记忆系统 AGB**：召回只剩一套规则——泛词标签不单独放行、同一条脉络一轮最多两个位子、近似去重、过时默认不给、字面匹配有最低门槛、向量要比全库明显突出、落差淘汰、新写不降门槛；新增「余温」（上一轮刚想起、这一轮没想起别的时留一行提醒，默认关）；档案牵记忆库（名字带卡、卡牵记忆）；回望标里「不该」改叫「不相关」；向量门槛折进「高级」；脉络封面行改成「[回忆起的脉络 · 以下记忆所属的长期线索]《线名》」，TA 一眼知道这一行和下面那页的关系。与电脑端同一份召回核心，备份两端互导逐字段相同。
 - **导入官方聊天记录**：ChatGPT / Claude 官方导出（压缩包直接选）、其它 JSON / JSONL、自己记的逐行文本（按日期范围排时间，不用手动加时间戳）；默认每个对话窗口各进一个话题频道，重复导入自动跳过，可一键撤销。
 - **调色盘扩展**：分区玻璃与分区文字色覆盖到导航抽屉五格、双方语音条（含双语与通话小条）、音乐页（进度条 / 黑胶 / 歌词）、日程页（环线 / 液柱 / 整页文字）；会话顶栏左侧按钮的色块缝隙已根修。
 - **美化码与主题方案**：整套外观打成一段文字码分享、导入、一键撤销；「恢复默认」与方案存取逐项核对，存进去的方案不再被后来的改色连带改动。
@@ -371,7 +379,7 @@ Connect your own AI API keys to unlock all interactive features. Supports Claude
 - **Circle** — Shared social feed where you and authorized AIs post, comment, reply and repost, with per-post visibility.
 - **Calendar** — Anniversaries, birthdays, plans and reminders; AIs read upcoming items, mention them naturally, leave notes, and can be authorized to write entries.
 - **Blog / Letters** — Journal with AI comments & annotations, password diary, and a category shelf for organizing and filtering entries (AIs can be authorized to write entries); asynchronous AI correspondence with wax-sealed envelopes.
-- **Memory / Auto Memory** — Long-term emotional memory with decay and context injection; per-AI autonomous dossiers about you; **Memory Summary** distills a time range of materials into a single dossier entry in one call.
+- **Memory / Auto Memory** — AGB (The Abyss Gazing Back), the long-term memory system: a shared memory library plus per-AI autonomous dossiers about you; eight recall rules inject only what is relevant to the current line, every recall is inspectable and correctable (Gazing Back); Nameless Coastline shore visualization and Strands (thematic threads) in the Fathom view; vector retrieval optional; **Memory Summary** distills a time range of materials into a single dossier entry in one call.
 - **Music** — Vinyl-style fullscreen player with scrolling lyrics and "Listen Together" pairing with an AI; NetEase Cloud Music mode (log into your own account for playlists, likes, daily picks, personal FM and listening charts, with per-action AI control — needs your own CORS relay Worker); **QQ Music mode** (WeChat / QQ QR or pasted credentials; liked songs, own and collected playlists, recommendations, charts and search — its official endpoints accept direct browser calls, so no relay is needed except for QR login); a mini floating player that stays on screen after you leave the music view.
 - **Coread / Cinema** — Read a journal entry as a book with an AI who only sees the page you are on; watch a local video (with subtitles) together, with frames, captions and snapshots sent alongside each message, bullet comments and fullscreen.
 - **ICode** — Shared file workspace with AI read/write, step confirmation, fine-grained search, DOCX/PDF/XLSX generation, and a built-in GitHub bridge (browse, import, push back).
@@ -407,7 +415,7 @@ Connect your own AI API keys to unlock all interactive features. Supports Claude
 - 视觉素材与项目文档：在作者有权授权的范围内采用 CC BY-NC-SA 4.0
 - 项目名称、Logo 与作者标识：保留相关权利，不授权冒充官方版本
 
-项目图像素材由 OpenAI GPT-IMAGE-2 生成，并由 Sui 使用 Adobe Photoshop CS 进行修改、合成、界面设计与编绘。AI 工具为辅助创作工具，不对项目内容拥有版权。本声明适用于项目的所有版本与衍生形式。第三方服务名称与商标归各自权利人所有。
+本项目使用 Anthropic Claude (Opus 4.6) 进行开发构建，Anthropic Claude (Fable 5)、Claude (Fable 5.1)、Claude (Opus 5.5)、Claude (Opus 4.8)、Claude (Sonnet 4.6)、Claude (Opus 5)、ChatGPT (5.6 Sol) 亦参与了编程工作。项目图像素材均由 OpenAI GPT-IMAGE-2 生成，并由作者使用 Adobe Photoshop CS 进行修改、界面设计与编绘。AI 工具为辅助创作工具，不对项目内容拥有版权。本声明适用于项目的所有版本与衍生形式。第三方服务名称与商标归各自权利人所有。
 
 允许在保留署名和许可文件的前提下进行非商业使用、修改与分享。未经 Sui 书面授权，不得出售、收费分发、打包进付费产品或服务、商业托管、收费部署或以其他方式获取商业利益。
 
