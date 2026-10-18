@@ -2254,7 +2254,7 @@ raf=requestAnimationFrame(frame);
         <p>语音消息是你发给 TA 的；语音条是 TA 的消息末尾附带的一段朗读。两者的文字与声音各走各的接口：识别用「语音转写」，出声用「通话设置」里的那套声音。</p>
         <div class="g-sub">
           <p><strong>语音消息</strong>：按住输入框右侧话筒录音，松开发送，上滑取消；配了转写接口会自动附文字稿。</p>
-          <p><strong>语音转写</strong>：API 页 → 多模态 → 语音转写，填接口或沿用已有 API；「常用模型」按服务商分了组（OpenAI、千问、智谱、硅基流动、Groq），选了会自动填地址。语音消息的文字稿与通话里「用嘴说」都靠它。</p>
+          <p><strong>语音转写</strong>：API 页 → 多模态 → 语音转写，填接口或沿用已有 API；「常用模型」按服务商分了组（OpenAI、千问、智谱、硅基流动、Groq），选了会自动填地址。语音消息的文字稿与通话里「用嘴说」都靠它。选能听声音的模型（千问 Omni、自建 SenseVoice），TA 还能知道你笑了、叹气了、咳嗽了。</p>
           <p><strong>语音条</strong>：通话设置 → 独立配置 → 该 AI → 语音条。开启后 TA 会在合适的消息末尾附一枚语音条，可选外语版朗读。</p>
           <p><strong>语气</strong>：通话设置里每位 TA 可单独开，开后语音条与通话会带上情绪语气（支持的引擎才有效果）。</p>
           <p><strong>颜文字 / 表情包面板</strong>：输入条「+」右侧的笑脸键打开，颜文字八组、点一枚即插入；可以加自己的颜文字，长按删除。</p>
@@ -2782,7 +2782,7 @@ self.addEventListener(&#x27;fetch&#x27;,function(e){
         <p>语音消息是你发给 TA 的；语音条是 TA 的消息末尾附带的一段朗读。两者的文字与声音各走各的接口：识别用「语音转写」，出声用「通话设置」里的那套声音。</p>
         <div class="g-sub">
           <p><strong>语音消息</strong>：按住输入框右侧话筒按钮录音，松开发送，向上滑动 70px 取消（微信式）。配置了转写接口（API 页 → 多模态）时自动附文字稿。聊天里的样子：语音胶囊自成一个气泡（长短按秒数），文字稿另起一个气泡；长按语音消息可「去语音条文字」只留干净的胶囊（再按一次恢复，文字稿仍在库里、仍进上下文）。TA 的语音条同款，胶囊下多一条等长虚线，外语版在中间夹一个原文小气泡。</p>
-          <p><strong>语音转写（识别接口）</strong>：API 页 → 多模态 → 语音转写：填 Endpoint、Key 与模型（默认 whisper-1），或直接在「沿用 API 配置」里选一个已配好的 API、在「常用模型」里选一个转写模型（图像生成卡同样有这两枚下拉）。常用模型按服务商分组：OpenAI（gpt-4o-mini-transcribe / gpt-4o-transcribe / whisper-1）、千问 · 阿里云百炼（qwen3-asr-flash 稳定版与 2026-02-10 快照，qwen-audio-3.1 / 3.0-asr-flash，fun-asr-flash）、智谱（glm-asr-2512，单段 30 秒内）、硅基流动（FunAudioLLM/SenseVoiceSmall、TeleAI/TeleSpeechASR，免费档）、Groq（whisper-large-v3-turbo / v3）。选的时候地址空着就自动填官方地址，从一家换到另一家时地址跟着换，中转或自建地址不动。千问分两路、按模型名自动切换：qwen3-asr-flash 系列走百炼 compatible-mode 的 chat 音频输入，qwen-audio-3.x-asr-flash 与 fun-asr-flash 走百炼原生接口——Endpoint 填百炼地址或沿用千问的 API 配置都行。其余任何 OpenAI 兼容的 /v1/audio/transcriptions 接口都能用。图像生成同样接了千问 Qwen-Image（百炼原生接口）与豆包 Seedream（火山方舟 OpenAI 兼容接口）。语音消息的文字稿与语音通话里「用嘴说」都靠它。</p>
+          <p><strong>语音转写（识别接口）</strong>：API 页 → 多模态 → 语音转写：填 Endpoint、Key 与模型（默认 whisper-1），或直接在「沿用 API 配置」里选一个已配好的 API、在「常用模型」里选一个转写模型（图像生成卡同样有这两枚下拉）。常用模型按服务商分组：OpenAI（gpt-4o-mini-transcribe / gpt-4o-transcribe / whisper-1）、千问 · 阿里云百炼（qwen3-asr-flash 稳定版与 2026-02-10 快照，qwen-audio-3.1 / 3.0-asr-flash，fun-asr-flash）、智谱（glm-asr-2512，单段 30 秒内）、硅基流动（FunAudioLLM/SenseVoiceSmall、TeleAI/TeleSpeechASR，免费档）、Groq（whisper-large-v3-turbo / v3）。选的时候地址空着就自动填官方地址，从一家换到另一家时地址跟着换，中转或自建地址不动。千问分两路、按模型名自动切换：qwen3-asr-flash 系列走百炼 compatible-mode 的 chat 音频输入，qwen-audio-3.x-asr-flash 与 fun-asr-flash 走百炼原生接口——Endpoint 填百炼地址或沿用千问的 API 配置都行。其余任何 OpenAI 兼容的 /v1/audio/transcriptions 接口都能用。图像生成同样接了千问 Qwen-Image（百炼原生接口）与豆包 Seedream（火山方舟 OpenAI 兼容接口）。语音消息的文字稿与语音通话里「用嘴说」都靠它。选能听声音的模型（千问 Omni、自建带标签的 SenseVoice）并开着「语气声音与情绪」，转写时会顺带标出笑、叹气、咳嗽、哭腔与情绪，并入发给 TA 的语气参考；别的模型只做本机的声学判断。</p>
           <p><strong>语音条（TA 的语音）</strong>：通话设置 → 独立配置 → 该 AI → 语音条。开启后 TA 会在合适的消息末尾附一枚可点播的语音条，声音与语速沿用通话里给 TA 配的那套；可单独选外语版（英 / 日 / 韩）：气泡照常显示中文，语音条朗读同一段话的外语。开关切换后 TA 的下一条消息重建一次提示缓存，之后恢复稳定命中。开了语音条的 TA 在共读间 / 观影室的频道里同样会发语音条。</p>
           <p><strong>语气</strong>：通话设置 → 独立配置 → 该 AI →「TA 的开关」卡 → 语气，每位 TA 独立，默认关。开启后 TA 给每条语音条和通话里的每句话标一种语气（平静 / 温柔 / 开心 / 撒娇 / 难过 / 生气 / 惊讶 / 耳语），标记只给合成端：ElevenLabs v3 用情绪标签、其它版本调稳定度与风格，MiniMax 走 emotion，Azure 走 express-as，系统语音与其它引擎忽略；气泡、原文面板、通话字幕与文字稿都不显示标记。切换后 TA 的下一条消息重建一次提示缓存。</p>
           <p><strong>颜文字 / 表情包面板</strong>：输入条「+」右侧的笑脸键在输入条上方展开一块面板（键盘开着也能开，不模糊底下的聊天），顶行切换「颜文字 / 表情包」，再点笑脸或 ✕ 收起。颜文字分开心 / 生气 / 伤心 / 惊讶 / 无语 / Kiss / 经典 / 双人款八组共 134 枚预设，每行三枚、四行之后可滚动，点一枚就插到光标处、面板随即收起回到输入框；底部输入框加上箭头可把你自己的颜文字加进当前分组，长按自定义的那枚可删除。自定义颜文字随备份走，只在手机端用。</p>
@@ -3824,10 +3824,11 @@ self.addEventListener(&#x27;fetch&#x27;,function(e){
         <div class="f-group"><label>沿用 API 配置 <span class="lb-note">（选一个即填入其地址与密钥并保存，仍可手改）</span></label><div class="sel"><select id="vt-src"><option value="">— 自定义 —</option></select></div></div><!-- v178-p：①转写来源下拉 -->
         <div class="f-group"><label>Endpoint <span class="lb-note">（OpenAI 兼容，可只填到 /v1）</span></label><input id="vt-ep" placeholder="https://api.openai.com/v1"></div>
         <div class="f-group"><label>API Key</label><input id="vt-key" type="password" autocomplete="off"></div>
-        <div class="f-group"><label>常用模型 <span class="lb-note">（选一个即填入模型栏并保存）</span></label><div class="sel"><select id="vt-mpre"><option value="">— 自定义 —</option><optgroup label="OpenAI"><option value="gpt-4o-mini-transcribe" data-pv="openai" data-ep="https://api.openai.com/v1">gpt-4o-mini-transcribe</option><option value="gpt-4o-transcribe" data-pv="openai" data-ep="https://api.openai.com/v1">gpt-4o-transcribe</option><option value="whisper-1" data-pv="openai" data-ep="https://api.openai.com/v1">whisper-1</option></optgroup><optgroup label="千问 · 阿里云百炼"><option value="qwen3-asr-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen3-asr-flash（稳定版）</option><option value="qwen3-asr-flash-2026-02-10" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen3-asr-flash-2026-02-10（最新快照）</option><option value="qwen-audio-3.1-asr-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen-audio-3.1-asr-flash（新 · 原生接口）</option><option value="qwen-audio-3.0-asr-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen-audio-3.0-asr-flash（原生接口）</option><option value="fun-asr-flash-2026-06-15" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">fun-asr-flash-2026-06-15（原生接口）</option></optgroup><optgroup label="智谱"><option value="glm-asr-2512" data-pv="zhipu" data-ep="https://open.bigmodel.cn/api/paas/v4">glm-asr-2512（单段 30 秒内）</option></optgroup><optgroup label="硅基流动 SiliconFlow"><option value="FunAudioLLM/SenseVoiceSmall" data-pv="sf" data-ep="https://api.siliconflow.cn/v1">FunAudioLLM/SenseVoiceSmall（免费）</option><option value="TeleAI/TeleSpeechASR" data-pv="sf" data-ep="https://api.siliconflow.cn/v1">TeleAI/TeleSpeechASR（免费）</option></optgroup><optgroup label="Groq"><option value="whisper-large-v3-turbo" data-pv="groq" data-ep="https://api.groq.com/openai/v1">whisper-large-v3-turbo</option><option value="whisper-large-v3" data-pv="groq" data-ep="https://api.groq.com/openai/v1">whisper-large-v3</option></optgroup></select></div></div><!-- v178-p：①常用转写模型 -->
+        <div class="f-group"><label>常用模型 <span class="lb-note">（选一个即填入模型栏并保存）</span></label><div class="sel"><select id="vt-mpre"><option value="">— 自定义 —</option><optgroup label="OpenAI"><option value="gpt-4o-mini-transcribe" data-pv="openai" data-ep="https://api.openai.com/v1">gpt-4o-mini-transcribe</option><option value="gpt-4o-transcribe" data-pv="openai" data-ep="https://api.openai.com/v1">gpt-4o-transcribe</option><option value="whisper-1" data-pv="openai" data-ep="https://api.openai.com/v1">whisper-1</option></optgroup><optgroup label="千问 · 阿里云百炼"><option value="qwen3-asr-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen3-asr-flash（稳定版）</option><option value="qwen3-asr-flash-2026-02-10" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen3-asr-flash-2026-02-10（最新快照）</option><option value="qwen-audio-3.1-asr-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen-audio-3.1-asr-flash（新 · 原生接口）</option><option value="qwen-audio-3.0-asr-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen-audio-3.0-asr-flash（原生接口）</option><option value="fun-asr-flash-2026-06-15" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">fun-asr-flash-2026-06-15（原生接口）</option><option value="qwen3-omni-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen3-omni-flash（能听语气：笑 / 叹气 / 咳嗽）</option><option value="qwen3.5-omni-flash" data-pv="ali" data-ep="https://dashscope.aliyuncs.com/compatible-mode/v1">qwen3.5-omni-flash（能听语气）</option></optgroup><optgroup label="智谱"><option value="glm-asr-2512" data-pv="zhipu" data-ep="https://open.bigmodel.cn/api/paas/v4">glm-asr-2512（单段 30 秒内）</option></optgroup><optgroup label="硅基流动 SiliconFlow"><option value="FunAudioLLM/SenseVoiceSmall" data-pv="sf" data-ep="https://api.siliconflow.cn/v1">FunAudioLLM/SenseVoiceSmall（免费）</option><option value="TeleAI/TeleSpeechASR" data-pv="sf" data-ep="https://api.siliconflow.cn/v1">TeleAI/TeleSpeechASR（免费）</option></optgroup><optgroup label="Groq"><option value="whisper-large-v3-turbo" data-pv="groq" data-ep="https://api.groq.com/openai/v1">whisper-large-v3-turbo</option><option value="whisper-large-v3" data-pv="groq" data-ep="https://api.groq.com/openai/v1">whisper-large-v3</option></optgroup></select></div></div><!-- v178-p：①常用转写模型 -->
         <div class="f-group" style="margin-bottom:6px"><label>模型</label><input id="vt-model" placeholder="gpt-4o-mini-transcribe / qwen3-asr-flash / FunAudioLLM/SenseVoiceSmall …"></div>
+        <div class="tog"><div class="tog-m"><div class="tog-t">语气声音与情绪（beta）</div><div class="tog-s">能听声音的模型（千问 Omni、自建 SenseVoice）转写时顺带标出笑、叹气、咳嗽、哭腔与情绪，并入发给 TA 的语气参考。</div></div><div class="sw2" id="vt-rich"></div></div><!-- v351-p -->
         <button class="btn wide primary" id="vt-save">保存</button>
-        <p class="hint">选「常用模型」时，地址空着会自动填上；换到另一家的官方模型，地址跟着换；中转或自建的地址不动。多数服务走 OpenAI 兼容的 /audio/transcriptions（OpenAI、硅基流动、Groq、智谱 GLM-ASR）。千问分两路，都自动切换：qwen3-asr-flash 系列走百炼 compatible-mode 的 chat 音频输入；qwen-audio-3.x-asr-flash 与 fun-asr-flash 走百炼原生接口。Endpoint 填百炼地址（compatible-mode 那条也行），或直接沿用你的千问 API 配置。录音结束后把识别文字填进对话输入框；Key 留空表示未启用；与电脑版共用同一套设置。豆包语音识别不是 OpenAI 兼容协议，暂不支持。浏览器直连要对方允许跨域（CORS），不通就走自己的中转。iPhone 录下的是 m4a，千问 3-ASR 的格式表里没有它；iPhone 上识别失败时，换 qwen-audio-3.1-asr-flash 或别家。<!-- v330-p：常用模型按服务商分组、带默认地址 --></p>
+        <p class="hint">选「常用模型」时，地址空着会自动填上；换到另一家的官方模型，地址跟着换；中转或自建的地址不动。多数服务走 OpenAI 兼容的 /audio/transcriptions（OpenAI、硅基流动、Groq、智谱 GLM-ASR）。千问分两路，都自动切换：qwen3-asr-flash 系列走百炼 compatible-mode 的 chat 音频输入；qwen-audio-3.x-asr-flash 与 fun-asr-flash 走百炼原生接口。Endpoint 填百炼地址（compatible-mode 那条也行），或直接沿用你的千问 API 配置。想让 TA 听出你笑了、叹气了，选千问 Omni（或自建带标签的 SenseVoice）并开着下面的「语气声音与情绪」。录音结束后把识别文字填进对话输入框；Key 留空表示未启用；与电脑版共用同一套设置。豆包语音识别不是 OpenAI 兼容协议，暂不支持。浏览器直连要对方允许跨域（CORS），不通就走自己的中转。iPhone 录下的是 m4a，千问 3-ASR 的格式表里没有它；iPhone 上识别失败时，换 qwen-audio-3.1-asr-flash 或别家。<!-- v330-p：常用模型按服务商分组、带默认地址 --></p>
       </div>
       <div id="call-card-pool" hidden><!-- 手机端：#1 原语音通话卡本体（id 与绑定原样） -->
       <div class="card">
@@ -9087,12 +9088,12 @@ function vtUrl(ep){
 function _vtDsNativeM(vt){return /^(qwen-audio-[\d.]+-asr-flash|fun-asr-flash)(?!.*(filetrans|streaming|realtime))/i.test(String((vt&&vt.model)||''))}
 function _vtChatAudioM(vt){return /^qwen[\w.-]*(asr|omni)/i.test(String((vt&&vt.model)||''))&&!_vtDsNativeM(vt)}/* 千问 ASR / Omni 在百炼 compatible-mode 只以 chat 音频输入形态提供，按模型名自动切路径 */
 function _vtB64M(blob){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(String(fr.result).split(',')[1]||'');fr.onerror=rej;fr.readAsDataURL(blob)})}
-async function _vtViaChatM(vt,blob,mime,ext){
+async function _vtViaChatM(vt,blob,mime,ext,rich){
   const b64=await _vtB64M(blob);
   let base=String(vt.endpoint||'https://dashscope.aliyuncs.com/compatible-mode/v1').trim().replace(/\/+$/,'').replace(/\/audio\/transcriptions$/,'').replace(/\/chat\/completions$/,'');if(!/\/v\d+$/.test(base))base+='/v1';
   const omni=/omni/i.test(String(vt.model||''));/* v330-p：Omni 在 compatible-mode 只许流式，且要一句指令才只做转写 */
   const parts=[{type:'input_audio',input_audio:{data:'data:'+String(mime||'audio/webm').split(';')[0]+';base64,'+b64,format:ext}}];
-  if(omni)parts.push({type:'text',text:'把这段语音逐字转写成文字。只输出转写结果，不回答、不翻译、不加任何说明。'});
+  if(omni)parts.push({type:'text',text:rich?_VT_RICH_PROMPT_M:'把这段语音逐字转写成文字。只输出转写结果，不回答、不翻译、不加任何说明。'});/* v351-p：开着「语气声音与情绪」时让 Omni 顺带写一行【声音】【情绪】 */
   const body={model:vt.model,stream:omni,messages:[{role:'user',content:parts}]};if(omni)body.modalities=['text'];
   const ac=new AbortController();const tmr=setTimeout(()=>ac.abort(),45000);
   try{const res=await fetch(base+'/chat/completions',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+vt.apiKey},body:JSON.stringify(body),signal:ac.signal});clearTimeout(tmr);
@@ -9117,24 +9118,45 @@ async function _vtViaDsM(vt,blob,mime,ext){
     return String(t).trim();
   }catch(err){clearTimeout(tmr);throw err}
 }
-async function vtTranscribe(blob,mime){
-  const vt=await loadVT();
-  const ext=/mp4/.test(mime)?'mp4':(/ogg/.test(mime)?'ogg':'webm');
-  if(_vtDsNativeM(vt))return _vtViaDsM(vt,blob,mime,ext);/* v330-p */
-  if(_vtChatAudioM(vt))return _vtViaChatM(vt,blob,mime,ext);/* 千问系走 chat 音频输入 */
-  const fd=new FormData();
-  fd.append('file',blob,'voice.'+ext);
-  fd.append('model',vt.model||'whisper-1');
-  if(/^glm-asr/i.test(String(vt.model||'')))fd.append('stream','false');/* v330-p：智谱 GLM-ASR 明说不要流式 */
-  const ac=new AbortController();const tmr=setTimeout(()=>ac.abort(),30000);
-  try{
-    const res=await fetch(vtUrl(vt.endpoint),{method:'POST',headers:{'Authorization':'Bearer '+vt.apiKey},body:fd,signal:ac.signal});
-    clearTimeout(tmr);
-    const raw=await res.text();
-    if(!res.ok)throw new Error('HTTP '+res.status+'：'+raw.slice(0,120));
-    try{const j=JSON.parse(raw);return j.text||(j.data&&j.data.text)||''}catch(e){return raw.trim()}
-  }catch(err){clearTimeout(tmr);throw err}
+function _vtRichParseM(raw){
+  var t=String(raw||''),ev=null,emo='',seen=false;
+  var EVM=[[/^(laugh(?:s|ter|ing)?|chuckles?|giggles?|笑声?|大笑|轻笑|哈哈+|嘿嘿|呵呵)$/i,'笑'],[/^(cough(?:s|ing)?|咳嗽?|咳了?几声)$/i,'咳嗽'],[/^(sigh(?:s|ing)?|叹气|叹息|唉)$/i,'叹气'],[/^(cr(?:y|ies|ying)|sob(?:s|bing)?|哭腔?|哭泣|抽泣|啜泣|呜咽|哽咽)$/i,'哭腔'],[/^(clears? (?:his |her |their )?throat|清嗓子?)$/i,'清嗓'],[/^(sniff(?:s|le|les|ling)?|吸鼻子)$/i,'吸鼻子'],[/^(yawn(?:s|ing)?|打?哈欠)$/i,'打哈欠'],[/^(breath(?:s|es|ing)?|喘气?|喘息|深呼吸|呼吸声?)$/i,'喘'],[/^(silence|pause|沉默|停顿)$/i,'沉默']];
+  var EMM=[[/^(happy|joy|开心|高兴|快乐|愉快|喜悦|欢快)$/i,'开心'],[/^(excited|兴奋|激动)$/i,'兴奋'],[/^(sad|upset|难过|伤心|低落|悲伤|沮丧|委屈|失落)$/i,'难过'],[/^(tired|疲惫|疲倦|累|困|倦怠)$/i,'疲惫'],[/^(fearful|nervous|anxious|worried|紧张|不安|害怕|焦虑|恐惧|担心)$/i,'紧张'],[/^(angry|annoyed|生气|愤怒|恼火|不耐烦|烦躁)$/i,'生气'],[/^(撒娇|亲昵|黏人|甜)$/i,'撒娇'],[/^(surprised|惊讶|吃惊|诧异)$/i,'惊讶'],[/^(hesitant|犹豫|不确定|迟疑)$/i,'犹豫'],[/^(disgusted|厌恶|嫌弃)$/i,'厌恶'],[/^(neutral|calm|平静|中性|淡定|平和)$/i,'平静']];
+  function evOf(x){x=String(x||'').trim().replace(/[。.!！～~]+$/,'');if(!x)return '';for(var i=0;i<EVM.length;i++)if(EVM[i][0].test(x))return EVM[i][1];return ''}
+  function emOf(x){x=String(x||'').trim().replace(/[。.!！～~]+$/,'');if(!x)return '';for(var i=0;i<EMM.length;i++)if(EMM[i][0].test(x))return EMM[i][1];return ''}
+  var push=function(e){if(!e)return;if(!ev)ev=[];if(ev.indexOf(e)<0)ev.push(e)};
+  var m=t.match(/【声音】\s*([^【\n]*?)\s*【情绪】\s*([^\n]*)/);/* ③ Omni 最后一行 */
+  if(m){seen=true;if(!ev)ev=[];String(m[1]||'').split(/[、，,;；/\s]+/).forEach(function(x){if(!x||/^(无|没有|none|无明显|没听到)$/i.test(x))return;push(evOf(x))});var em=[];String(m[2]||'').split(/[、，,;；/\s]+/).forEach(function(x){var e=emOf(x);if(!e||em.indexOf(e)>=0)return;if(e==='平静'){if(!em.length)em.push(e)}else{if(em[0]==='平静')em.shift();em.push(e)}});emo=em.slice(0,2).join('、');t=t.replace(m[0],' ')}
+  t=t.replace(/<\|([A-Za-z_]+)\|>/g,function(_,k){seen=true;k=k.toUpperCase();if(k==='LAUGHTER')push('笑');else if(k==='CRY')push('哭腔');else if(k==='COUGH'||k==='SNEEZE')push('咳嗽');else if(k==='BREATH')push('喘');else if(/^(HAPPY|SAD|ANGRY|FEARFUL|DISGUSTED|SURPRISED)$/.test(k)){if(!emo)emo=emOf(k)}return ' '});/* ① SenseVoice：NEUTRAL / Speech / BGM / 语种 / withitn 只当「有标签」，不记事件、不定情绪 */
+  t=t.replace(/[\[（(【]\s*([^\]）)】\n]{1,16})\s*[\]）)】]/g,function(all,inner){var e=evOf(inner);if(e){seen=true;push(e);return ' '}return all});/* ② 括号里的声音；别的括号原样留 */
+  t=t.replace(/[ \t]{2,}/g,' ').replace(/^\s+|\s+$/g,'');
+  if(seen&&!ev)ev=[];
+  return {text:t,ev:ev,emo:emo};
 }
+var _VT_RICH_PROMPT_M='先把这段语音逐字转写成文字：只写听到的话，不回答、不翻译、不解释。转写完另起一行，用这个固定格式写最后一行：【声音】这段录音里听到的非语言声音，从「笑、哭腔、叹气、咳嗽、清嗓、吸鼻子、打哈欠、喘」里挑实际有的，用顿号分开，都没有就写「无」【情绪】说话人此刻的情绪，从「开心、兴奋、平静、难过、疲惫、紧张、生气、撒娇、惊讶、犹豫」里挑最贴切的一到两个，用顿号分开。';
+async function vtTranscribeX(blob,mime){
+  const vt=await loadVT();const rich=vt.rich!==false;
+  const ext=/wav/.test(mime)?'wav':(/mp4/.test(mime)?'mp4':(/ogg/.test(mime)?'ogg':'webm'));
+  let raw='';
+  if(_vtDsNativeM(vt))raw=await _vtViaDsM(vt,blob,mime,ext);/* 手机端 v436 */
+  else if(_vtChatAudioM(vt))raw=await _vtViaChatM(vt,blob,mime,ext,rich);/* 千问系走 chat 音频输入 */
+  else{
+    const fd=new FormData();
+    fd.append('file',blob,'voice.'+ext);
+    fd.append('model',vt.model||'whisper-1');
+    if(/^glm-asr/i.test(String(vt.model||'')))fd.append('stream','false');/* 手机端 v436：智谱 GLM-ASR 明说不要流式 */
+    const ac=new AbortController();const tmr=setTimeout(()=>ac.abort(),30000);
+    try{
+      const res=await fetch(vtUrl(vt.endpoint),{method:'POST',headers:{'Authorization':'Bearer '+vt.apiKey},body:fd,signal:ac.signal});
+      clearTimeout(tmr);
+      const t=await res.text();
+      if(!res.ok)throw new Error('HTTP '+res.status+'：'+t.slice(0,120));
+      try{const j=JSON.parse(t);raw=j.text||(j.data&&j.data.text)||''}catch(e){raw=t.trim()}
+    }catch(err){clearTimeout(tmr);throw err}
+  }
+  const r=_vtRichParseM(raw);if(!rich){r.ev=null;r.emo=''}return r;
+}
+async function vtTranscribe(blob,mime){return (await vtTranscribeX(blob,mime)).text}
 function stopRecTracks(){try{if(_recStream)_recStream.getTracks().forEach(t=>t.stop())}catch(e){}_recStream=null}
 var _recT0=0,_recCancel=false,_recPressY=0,_recAborted=false,_recTimer=null,_recSticky=false,_recPressActive=false,_recPointerId=null,_recStickyT=null;
 
@@ -9224,14 +9246,14 @@ function _vrecCancelUI(c){
       if(blob.size<600){toast('录音太短');return}
       var dataUrl=await new Promise(function(res){var fr=new FileReader();fr.onload=function(){res(String(fr.result))};fr.onerror=function(){res('')};fr.readAsDataURL(blob)});
       if(!dataUrl){toast('录音读取失败');return}
-      var transcript='';
+      var transcript='',rx9=null;
       await loadVT();
       if(vtReady()){
         toast('转写中…');
-        try{transcript=(await vtTranscribe(blob,(r&&r.mimeType)||mime||''))||''}catch(err){}
+        try{rx9=await vtTranscribeX(blob,(r&&r.mimeType)||mime||'');transcript=String((rx9&&rx9.text)||'')}catch(err){}
       }
       var tone='';
-      try{var ab9=await _vmDecode(blob);tone=_vmToneAnalyze(ab9,transcript)||''}catch(err9){}
+      try{var ab9=await _vmDecode(blob);tone=_vmToneAnalyze(ab9,transcript,rx9)||''}catch(err9){try{tone=_vmToneAnalyze(null,transcript,rx9)||''}catch(e2){}}
       await sendVoiceMsg({dataUrl:dataUrl,mime:blob.type,duration:dur,transcript:transcript,tone:tone});
     };
     _recT0=Date.now();
@@ -9575,10 +9597,15 @@ function _coldBlockM(cfg,mems,thread,scope,ws,winIds,winFrom,amBlock,quiet){
   const out={hard:hard,soft:soft,isig:IBMem.idSig(mems,r.ids||[]),day:day,ws:ws,at:now,text:r.text||'',ids:r.ids||[],back:r.back||null,am:(amBlock&&amBlock.stable)||'',amv:(amBlock&&amBlock.stableV)||{},n:r.pins|0,r:r.recent|0};
   _coldSaveM(lsKey,out);
   return out}
-function _memQueryM(msgs){/* v317-p：查询＝你这一句；不足 6 字且上一句你的话在 3 分钟内，就把上一句拼上（「那次呢」「后来呢」这类接话才有着落） */
-  try{var _lm=(msgs||[])[(msgs||[]).length-1];var us=(msgs||[]).filter(function(m){return m&&m.role==='user'&&(!m.mark||m===_lm)});var last=us[us.length-1];/* v317-p：共读等标记行不当「你上一句」；末条本身是标记行（主动开口那轮）时照旧用它 */if(!last)return '';var q=String(last.content||'');
-    var core=q.replace(/\[[^\]\n]{1,60}\]/g,'').replace(/[\s,，。！？!?、；;：:“”"'‘’（）()…~～]+/g,'');
-    if(core.length<6){try{if(window.IBMem&&IBMem.trivial(IBMem.cleanQuery(q,[])))return q}catch(e){}var prev=us[us.length-2];if(prev&&(last.timestamp||0)-(prev.timestamp||0)<180000)q=String(prev.content||'')+' '+q}return q}catch(e){return ''}}
+function _uQTextM(m){
+  try{var c=String((m&&m.content)||'');if(!c.trim()&&m&&m.voice&&m.voice.transcript)c=String(m.voice.transcript||'');return c}catch(e){return ''}}
+function _memQueryM(msgs){
+  try{var _lm=(msgs||[])[(msgs||[]).length-1];var us=(msgs||[]).filter(function(m){return m&&m.role==='user'&&(!m.mark||m===_lm)});var last=us[us.length-1];/* 手机端 v377：共读等标记行不当「你上一句」；末条本身是标记行（主动开口那轮）时照旧用它 */if(!last)return '';var q=_uQTextM(last);
+    var coreOf=function(x){return String(x||'').replace(/\[[^\]\n]{1,60}\]/g,'').replace(/[\s,，。！？!?、；;：:“”"'‘’（）()…~～]+/g,'')};var core=coreOf(q);
+    var triv=false;if(core.length<12){try{triv=!!(window.IBMem&&IBMem.trivial(IBMem.cleanQuery(q,[])))}catch(e){}}
+    var isCall=function(m){return /^\[(?:语音|视频)通话\] /.test(String((m&&m.content)||''))};
+    if(isCall(last)&&core.length<12){if(triv)return q;var k=us.length-2,n=0,t0=last.timestamp||0;while(k>=0&&n<2&&core.length<12){var pm=us[k];if(!isCall(pm)||(t0-(pm.timestamp||0))>90000)break;q=_uQTextM(pm).replace(/^\[(?:语音|视频)通话\] /,'')+' '+q;core=coreOf(q);t0=pm.timestamp||0;k--;n++}return q}
+    if(core.length<6){if(triv)return q;var prev=us[us.length-2];if(prev&&(last.timestamp||0)-(prev.timestamp||0)<180000)q=_uQTextM(prev)+' '+q}return q}catch(e){return ''}}
 function _memHitFromSelM(sel){
   if(sel&&sel.hit&&typeof sel.hit==='object')return sel.hit;
   const it=(sel&&Array.isArray(sel.it))?sel.it.filter(x=>x&&x.id).slice(0,20).map(x=>({id:String(x.id),k:String(x.k||'s'),t:String(x.t||'').slice(0,40)})):[];
@@ -12214,7 +12241,7 @@ async function genReplyGroup(pcfg,opt){
   if(!members.length){toast('群里没有有效成员');return}
   const sil=new Set(g.mentionOnly||[]);
   const lastU=[..._msgs].reverse().find(m=>m.role==='user');
-  const lastTxt=lastU?(lastU.content||''):'';
+  const lastTxt=lastU?_uQTextM(lastU):'';/* v351-p：群聊最后一句：语音消息用文字稿（召回查询、@ 判断同用） */
   const speaking=_gPickSpeakersM(g,members,sil,lastTxt,_msgs,opt);/* v323-p：导演模式调度 */
   if(!speaking.length){if(!(opt&&opt.only))toast('成员都在静默模式且没有被 @，本轮无人回应');return}
   const myThread=_activeThread;
@@ -12269,7 +12296,7 @@ async function genReplyGroup(pcfg,opt){
         const combined=history.concat(roundExtras.filter(m=>m&&!_hIds9.has(m.id)&&(m.timestamp||0)>=_hLast9));
         const mapped=combined.map(m=>{
           if(m.role==='user'){
-            let _mc0=String(m.content||''),_pf0='';if(/^\[(?:语音|视频)通话\] /.test(_mc0)){_pf0=_mc0.slice(0,7);_mc0=_mc0.slice(7);if(m.callTone){var _tn0=_vmToneNatural(m.callTone);if(_tn0)_pf0=_pf0.slice(0,5)+'｜声学语气参考: '+_tn0+'] '}}
+            let _mc0=String(m.content||''),_pf0='';if(m.voice)_mc0=_voiceApiLine(m.voice)+(_mc0?'\n'+_mc0:'');if(/^\[(?:语音|视频)通话\] /.test(_mc0)){_pf0=_mc0.slice(0,7);_mc0=_mc0.slice(7);if(m.callTone){var _tn0=_vmToneNatural(m.callTone);if(_tn0)_pf0=_pf0.slice(0,5)+'｜声学语气参考: '+_tn0+'] '}}
             let uc=_pf0+'['+userLabel+'] '+((m.quote&&m.quote.text)?('[引用 '+(m.quote.name||'对方')+'的消息：'+String(m.quote.text||'').slice(0,300)+']\n'):'')+(m.sticker?('（表情包「'+String(m.sticker.name||'')+'」'+(m.sticker.desc?('：'+String(m.sticker.desc)):'')+(m.sticker.use?('｜用法：'+String(m.sticker.use)):'')+'）'+(_mc0?'\n':'')):'')+_mc0;/* v323-p：用户在群里发的表情包，同 1对1 只给一句叙述 *//* v323-p：群聊历史补引用前缀（与 1对1 buildHist、电脑端 v97 同格式） */
             if(m.files&&m.files.length)m.files.forEach(f=>{uc+='\n\n[文件上传: '+(f.name||'附件')+']\n'+_capFileTextM(f.text,f.name)});
             if(/^\[视频通话快照\]/.test(_mc0))uc='[视频通话快照] 这张图是 '+(m.snapBy||(m.snap==='ai'?'某位成员':userLabel))+' 在群视频通话中拍下的镜头画面';/* 本轮：群视频快照按拍摄者署名 */
@@ -13322,6 +13349,7 @@ async function renderApiTools(){
   $('vt-ep').value=_vt.endpoint||'';
   $('vt-key').value=_vt.apiKey||'';
   $('vt-model').value=_vt.model||'';
+  try{sw2($('vt-rich'),_vt.rich!==false)}catch(e){}/* v351-p */
   try{_apiSrcFillM($('vt-src'),'stt');_apiSrcFillM($('ig-src'),'ig');$('vt-mpre').value='';$('ig-mpre').value=''}catch(e){}/* v178-p：①两卡的「沿用 API 配置」按当前 API 列表重填，模型下拉回落自定义 */
   const box=$('tool-ping');box.innerHTML='';
   if(!_cfgs.length){box.innerHTML='<div class="empty" style="padding:14px">没有可测试的 API 配置。</div>';return}
@@ -13342,6 +13370,7 @@ async function renderApiTools(){
     box.appendChild(row);
   });
 }
+$('vt-rich').addEventListener('click',async()=>{const vt=await loadVT();const on=!(vt.rich!==false);const upd=Object.assign({},vt,{id:'voiceTrans',rich:on});try{await dbPut('apiSettings',upd);_vt=upd;sw2($('vt-rich'),on)}catch(e){toast('保存失败')}});/* v351-p：语气声音与情绪开关（默认开） */
 $('vt-save').addEventListener('click',async()=>{
   const vt=await loadVT();
   const upd=Object.assign({},vt,{id:'voiceTrans',
@@ -14358,7 +14387,7 @@ function _orientApply(){try{
   setTimeout(function(){try{if(window.IBNative&&window.IBNative.available){var _bg=$('pres-bg');var _row=_bg&&_bg.closest('.tog');if(_row)_row.style.display=''}}catch(e){}},1200);/* v116-p：壳内显露「后台 Presence（系统级）」开关（桥在文末激活，故延时探测；浏览器 / PWA 保持隐藏） */
 })();
 function _vidQNormM(v){v=String(v==null?'m':v);if(v==='384')return 'l';if(v==='768')return 'h';if(v==='512')return 'm';return (v==='l'||v==='h')?v:'m'}/* 画质档位兼容电脑端备份里的 384/512/768 写法 */
-var IB_VER='v350-p',IB_VER_DATE='2026-10-10';
+var IB_VER='v351-p',IB_VER_DATE='2026-10-14';
 (function _appVerDraw(){var e=document.getElementById('app-ver');if(e)e.textContent='InternalBeyond Mobile '+IB_VER+'（'+IB_VER_DATE+'）'})();
 function _ibVeilHeal(){try{setTimeout(function(){try{var v=document.getElementById('lk-preveil');if(!v||v.classList.contains('off'))return;var lk=document.getElementById('lockscr');if(lk){_lkVeilOff();return}if(localStorage.getItem('ib_lockOn')==='1')return;_lkVeilOff()}catch(e){}},1600)}catch(e){}}/* v246-p：启动完成后仍盖幕的静默自愈 */
 function _lkVeilOff(){try{window._ibVeilOff=true;var v=document.getElementById('lk-preveil');if(v){v.classList.add('off');setTimeout(function(){try{v.remove()}catch(e){}},420)}}catch(e){}}/* fix-r4：预遮罩揭幕（任务 8） */
@@ -16185,26 +16214,27 @@ async function _vmDecode(blob){
   const buf=await blob.arrayBuffer();
   return await new Promise(function(res,rej){_vmACtx.decodeAudioData(buf,res,function(e){rej(e||new Error('音频解码失败'))})});
 }
-function _vmToneAnalyze(ab,transcript){
+function _vmToneAnalyze(ab,transcript,rich){
+  var richOnly=function(){try{var p=[];if(rich&&rich.emo){var ce=_vmEmoCatM(rich.emo);if(ce)p.push('情绪倾向:'+ce+'(较高置信)')}if(rich&&rich.ev&&rich.ev.length)p.push('声音:'+rich.ev.slice(0,4).join('、'));return p.join('；')}catch(e){return ''}};
   try{
-    if(!ab||!ab.length||ab.duration<0.6)return '';
+    if(!ab||!ab.length||ab.duration<0.6)return richOnly();
     const srcRate=ab.sampleRate,chN=ab.numberOfChannels,srcLen=ab.length;
     /* 简易降采样到 ~16k：整数步长抽取（分析用途足够） */
     const step=Math.max(1,Math.round(srcRate/16000)),sr=srcRate/step,n=Math.floor(srcLen/step);
     const x=new Float32Array(n);
     for(let c=0;c<chN;c++){const d=ab.getChannelData(c);for(let i=0;i<n;i++)x[i]+=d[i*step]/chN}
     const frame=Math.round(sr*0.03),hop=Math.round(sr*0.015),nf=Math.max(1,Math.floor((n-frame)/hop));
-    if(nf<8)return '';
+    if(nf<8)return richOnly();
     const _median=function(a){if(!a.length)return 0;const b=a.slice().sort(function(u,v){return u-v});const m=Math.floor(b.length/2);return b.length%2?b[m]:(b[m-1]+b[m])/2};
     const rms=new Float32Array(nf);
     for(let f=0;f<nf;f++){let s=0,o=f*hop;for(let i=0;i<frame;i++){const v=x[o+i];s+=v*v}rms[f]=Math.sqrt(s/frame)}
     const sorted=Array.from(rms).sort(function(a,b){return a-b});
     const p10=sorted[Math.floor(nf*0.10)]||0,p90=sorted[Math.floor(nf*0.90)]||0;
-    if(p90<0.004)return '';/* 几乎无声 */
+    if(p90<0.004)return richOnly();/* 几乎无声 */
     const thr=Math.min(p90*0.65,Math.max(p90*0.18,p10*2.5,0.0025));/* 连续发声时 p10≈p90，阈值需封顶，避免整段被误判为静音 */
     let first=-1,last=-1;const act=new Uint8Array(nf);
     for(let f=0;f<nf;f++){if(rms[f]>=thr){act[f]=1;if(first<0)first=f;last=f}}
-    if(first<0||last-first<4)return '';
+    if(first<0||last-first<4)return richOnly();
     let actN=0,sumDb=0,sumR=0,sumR2=0;const activeRms=[];
     for(let f=first;f<=last;f++){if(act[f]){const rv=rms[f];actN++;sumDb+=20*Math.log10(rv+1e-8);sumR+=rv;sumR2+=rv*rv;activeRms.push(rv)}}
     const meanDb=sumDb/Math.max(1,actN),meanR=sumR/Math.max(1,actN);
@@ -16280,12 +16310,12 @@ function _vmToneAnalyze(ab,transcript){
     if(energyTailDb>3.5)voice.push('后段音量渐强');else if(energyTailDb<-3.5)voice.push('后段音量渐弱');
     if(f0Jitter>0.13&&f0Quality>0.45&&f0spread>0.12)voice.push('音高有轻微颤动倾向');
     
-    let hfS=0,hfN=0,visN=0;
+    let hfS=0,hfN=0,visN=0;const tiltA=new Float32Array(nf).fill(-1);/* v351-p：逐帧谱倾斜，给非语言声音判断用 */
     for(let f=first;f<=last;f+=2){if(act[f])visN++}
     for(let f=first;f<=last;f+=3){
       if(!act[f])continue;const o=f*hop;let e0=0,e1=0;
       for(let i=1;i<frame;i++){const v=x[o+i];e0+=v*v;const dv=v-x[o+i-1];e1+=dv*dv}
-      if(e0>0){hfS+=e1/e0;hfN++}
+      if(e0>0){const tv=e1/e0;hfS+=tv;hfN++;tiltA[f]=tv;if(f+1<nf)tiltA[f+1]=tv;if(f+2<nf)tiltA[f+2]=tv}
     }
     const tilt9=hfN?hfS/hfN:0,vr9=visN?f0seq.length/visN:0;
     if(hfN){if(tilt9>0.52)voice.push('音色偏明亮清脆');else if(tilt9<0.13)voice.push('音色偏低沉柔和')}
@@ -16293,50 +16323,97 @@ function _vmToneAnalyze(ab,transcript){
     const reg9=!f0med?'':(f0med<115?'音区偏低':(f0med>255?'音区偏高':''));
     if(!voice.length&&f0med)voice.push(f0spread<0.08?'声线较稳定':'声线有自然起伏');
 
+    
+    var evL=[];
+    try{
+      var voA=new Uint8Array(nf);f0seq.forEach(function(v){voA[v.f]=1;if(v.f+1<nf)voA[v.f+1]=1});
+      var segs=[],sA=-1,gp=0,GAPF=Math.max(3,Math.round(0.10/hopSec));
+      for(let f=first;f<=last+1;f++){var on=(f<=last)&&act[f];if(on){if(sA<0)sA=f;gp=0}else if(sA>=0){gp++;if(gp>=GAPF||f>last){segs.push([sA,f-gp]);sA=-1;gp=0}}}
+      var segF=segs.map(function(sg){var a=sg[0],b=sg[1],n=b-a+1,pk=0,sm=0,vo=0,ti=0,tn=0,f0s=[];
+        for(let f=a;f<=b;f++){var r=rms[f];sm+=r;if(r>pk)pk=r;if(voA[f])vo++;if(tiltA[f]>=0){ti+=tiltA[f];tn++}}
+        f0seq.forEach(function(v){if(v.f>=a&&v.f<=b)f0s.push(v.hz)});
+        var h=Math.max(1,Math.floor(n/2)),e1=0,e2=0;for(let f=a;f<a+h;f++)e1+=rms[f];for(let f=b-h+1;f<=b;f++)e2+=rms[f];
+        return {a:a,b:b,dur:n*hopSec,pk:pk,mean:sm/n,vr:vo/n,tilt:tn?ti/tn:-1,f0:f0s.length?_median(f0s):0,decay:e1>0?(e2/e1):1}});
+      var cough=[],sigh=0,inhale=0,laugh=0,laughTxt=false;
+      segF.forEach(function(g,i){var gb=i?(g.a-segF[i-1].b)*hopSec:9,ga=(i<segF.length-1)?(segF[i+1].a-g.b)*hopSec:9;
+        if(g.dur>=0.08&&g.dur<=0.5&&g.pk>=p90*0.75&&g.vr<=0.35&&g.tilt>=0.30&&gb>=0.12&&ga>=0.10)cough.push(g.a*hopSec);/* 短、响、不带基频、宽带、前后都空：咳嗽 / 清嗓一类 */
+        else if(g.dur>=0.45&&g.dur<=2.2&&g.vr<=0.40&&g.tilt>=0.22&&g.mean<=p90*0.9&&g.decay<=0.75)sigh++;/* 长、带气声、渐弱：叹气 */
+        else if(g.dur>=0.08&&g.dur<=0.35&&g.vr<=0.30&&g.tilt>=0.25&&g.mean>=p90*0.12&&g.mean<=p90*0.8&&(ga<=0.5||gb<=0.5))inhale++;/* 短促吸气：哭腔的旁证 */
+      });
+      var phr=[];segs.forEach(function(sg){var L=phr[phr.length-1];if(L&&(sg[0]-L[1])*hopSec<=0.3)L[1]=sg[1];else phr.push([sg[0],sg[1]])});
+      var txtL=/([哈嘿呵嘻]\s*){2,}|h[ae]h[ae]|lol/i.test(txt);
+      phr.forEach(function(ph){var a=ph[0],b=ph[1];if((b-a+1)*hopSec<0.5)return;
+        var sm=[],pkv=0;for(let f=a;f<=b;f++){var v=(rms[Math.max(a,f-1)]+rms[f]+rms[Math.min(b,f+1)])/3;sm.push(v);if(v>pkv)pkv=v}
+        var peaks=[],minD=Math.round(0.09/hopSec);
+        for(let k=1;k<sm.length-1;k++){if(sm[k]>=sm[k-1]&&sm[k]>sm[k+1]&&sm[k]>=pkv*0.35){var lo=sm[k];for(let j=Math.max(0,k-6);j<=Math.min(sm.length-1,k+6);j++)if(sm[j]<lo)lo=sm[j];if(sm[k]-lo>=pkv*0.25&&(!peaks.length||k-peaks[peaks.length-1].k>=minD))peaks.push({k:k,v:sm[k]})}}
+        if(peaks.length<3)return;
+        
+        var runs=[],cur=[peaks[0]];
+        for(let k=1;k<peaks.length;k++){var d=(peaks[k].k-peaks[k-1].k)*hopSec;if(cur.length===1){cur.push(peaks[k]);continue}var iv0=[];for(let j=1;j<cur.length;j++)iv0.push((cur[j].k-cur[j-1].k)*hopSec);var mu=iv0.reduce(function(x,y){return x+y},0)/iv0.length;if(Math.abs(d-mu)<=mu*0.22)cur.push(peaks[k]);else{runs.push(cur);cur=[peaks[k-1],peaks[k]]}}
+        runs.push(cur);
+        runs.forEach(function(rn){if(rn.length<3)return;
+          var iv=[],amp=[];for(let k=1;k<rn.length;k++)iv.push((rn[k].k-rn[k-1].k)*hopSec);rn.forEach(function(p){amp.push(p.v)});
+          var mI=iv.reduce(function(x,y){return x+y},0)/iv.length,mA=amp.reduce(function(x,y){return x+y},0)/amp.length;
+          var cvA=Math.sqrt(amp.reduce(function(x,y){return x+(y-mA)*(y-mA)},0)/amp.length)/Math.max(1e-6,mA);
+          var ra=a+rn[0].k-Math.round(0.08/hopSec),rb=a+rn[rn.length-1].k+Math.round(0.08/hopSec),f0s=[],vo=0,n=0;for(let f=Math.max(a,ra);f<=Math.min(b,rb);f++){n++;if(voA[f])vo++}f0seq.forEach(function(v){if(v.f>=ra&&v.f<=rb)f0s.push(v.hz)});var pf=f0s.length?_median(f0s):0;
+          var hi=!!(f0med&&pf>=f0med*1.18);
+          if(mI>=0.10&&mI<=0.35&&n&&vo/n>=0.4&&((txtL&&rn.length>=3)||(hi&&rn.length>=4&&cvA<=0.4))){laugh++;if(txtL)laughTxt=true}/* 等间隔、等响度的高音脉冲串：笑 */
+        });
+      });
+      if(laugh)evL.push(laughTxt?'笑':'笑?');
+      if(cough.length){var cc=0;for(let i=1;i<cough.length;i++)if(cough[i]-cough[i-1]<=0.8)cc++;evL.push((cc>=1||/咳/.test(txt))?'咳嗽':'咳嗽?')}
+      if(sigh)evL.push(/(唉|哎|叹气|叹了)/.test(txt)?'叹气':'叹气?');
+      var sobTxt=/(呜+|哭|抽泣|哽咽|想哭)/.test(txt);
+      if(f0Jitter>=0.12&&f0Quality>0.4&&inhale>=2&&(pauseRatio>=0.22||longPauses>=2))evL.push(sobTxt?'哭腔':'哭腔?');
+    }catch(eE){evL=[]}
+    var ev=(rich&&Array.isArray(rich.ev))?rich.ev.slice(0,4):evL.slice(0,4);
     /* 本地情绪融合：借鉴“声学特征 + 文字语义”的两阶段思路，但不增加第二次联网调用 */
     const score={'亲昵/撒娇':0,'开心':0,'兴奋':0,'愤怒/激动':0,'难过/低落':0,'疲惫':0,'紧张/不安':0,'犹豫/不确定':0,'平静/中性':0.8};
-    const add=function(k,v){score[k]+=v};
-    if(/(宝贝|宝宝|亲爱的|老公|老婆|爹地|哥哥|姐姐|想你|爱你|抱抱|亲亲|么么|撒娇|陪我|哄我|叫我)/i.test(txt))add('亲昵/撒娇',3.6);
-    if(/(开心|高兴|好棒|太好|喜欢|幸福|哈哈|嘿嘿|笑死|爱死)/i.test(txt))add('开心',3.4);
-    if(/(激动|兴奋|迫不及待|太爽|绝了|冲啊|哇塞)/i.test(txt))add('兴奋',3.6);
-    if(/(生气|气死|愤怒|烦死|闭嘴|讨厌|滚|凭什么|受够)/i.test(txt))add('愤怒/激动',4.0);
-    if(/(难过|伤心|委屈|想哭|哭了|失落|心疼|痛苦|不开心|崩溃)/i.test(txt))add('难过/低落',4.0);
-    if(/(好累|累死|疲惫|困死|好困|没力气|撑不住|想睡|熬不动)/i.test(txt))add('疲惫',4.2);
-    if(/(紧张|害怕|怕死|担心|焦虑|不安|慌|怎么办|完了)/i.test(txt))add('紧张/不安',3.9);
-    if(/(不知道|不确定|也许|可能吧|要不要|可以吗|行吗|好吗|是不是)/i.test(txt))add('犹豫/不确定',2.8);
-    if(/(没事|还好|没关系|慢慢来|挺好的|平静|放心)/i.test(txt))add('平静/中性',2.2);
+    const add=function(k,v){score[k]+=v};var textHit=false;const addT=function(k,v){score[k]+=v;textHit=true};/* v351-p：文字里有情绪词 */
+    if(/(宝贝|宝宝|亲爱的|老公|老婆|爹地|哥哥|姐姐|想你|爱你|抱抱|亲亲|么么|撒娇|陪我|哄我|叫我)/i.test(txt))addT('亲昵/撒娇',3.6);
+    if(/(开心|高兴|好棒|太好|喜欢|幸福|哈哈|嘿嘿|笑死|爱死)/i.test(txt))addT('开心',3.4);
+    if(/(激动|兴奋|迫不及待|太爽|绝了|冲啊|哇塞)/i.test(txt))addT('兴奋',3.6);
+    if(/(生气|气死|愤怒|烦死|闭嘴|讨厌|滚|凭什么|受够)/i.test(txt))addT('愤怒/激动',4.0);
+    if(/(难过|伤心|委屈|想哭|哭了|失落|心疼|痛苦|不开心|崩溃)/i.test(txt))addT('难过/低落',4.0);
+    if(/(好累|累死|疲惫|困死|好困|没力气|撑不住|想睡|熬不动)/i.test(txt))addT('疲惫',4.2);
+    if(/(紧张|害怕|怕死|担心|焦虑|不安|慌|怎么办|完了)/i.test(txt))addT('紧张/不安',3.9);
+    if(/(不知道|不确定|也许|可能吧|要不要|可以吗|行吗|好吗|是不是)/i.test(txt))addT('犹豫/不确定',2.8);
+    if(/(没事|还好|没关系|慢慢来|挺好的|平静|放心)/i.test(txt))addT('平静/中性',2.2);
     const endingSoft=/[嘛呀啦呐哟哦诶哼～~]{1,3}[。！？!?]*$/.test(txt);
     if(endingSoft)add('亲昵/撒娇',0.8);
+    var AF=textHit?1:1.5;const addA=function(k,v){score[k]+=v*AF};/* v351-p：文字没给线索时声学线索加权 1.5 */
+    var evS={};ev.forEach(function(x){var qq=/\?$/.test(x),kk=x.replace(/\?$/,'');evS[kk]=qq?0.6:1});if(evS['笑'])add('开心',3.2*evS['笑']);if(evS['哭腔'])add('难过/低落',4.0*evS['哭腔']);if(evS['叹气']){add('疲惫',1.4*evS['叹气']);add('难过/低落',0.9*evS['叹气'])}/* v351-p：声音事件是强证据（疑似减半） */
     if(rate){
-      if(rate<slowThr){add('疲惫',1.1);add('难过/低落',0.7);add('平静/中性',0.5);add('亲昵/撒娇',0.3)}
-      else if(rate>fastThr){add('兴奋',1.2);add('紧张/不安',0.9);add('愤怒/激动',0.8)}
+      if(rate<slowThr){addA('疲惫',1.1);addA('难过/低落',0.7);addA('平静/中性',0.5);addA('亲昵/撒娇',0.3)}
+      else if(rate>fastThr){addA('兴奋',1.2);addA('紧张/不安',0.9);addA('愤怒/激动',0.8)}
     }
-    if(meanDb<-25){add('疲惫',1.1);add('难过/低落',0.8);add('亲昵/撒娇',0.4)}
-    else if(meanDb>-13){add('兴奋',1.2);add('愤怒/激动',1.1);add('开心',0.5)}
-    if(pauseRatio>0.40||longPauses>=3){add('疲惫',1.2);add('难过/低落',0.9);add('紧张/不安',0.5)}
-    else if(pauseRatio<0.12){add('开心',0.4);add('兴奋',0.4)}
-    if(f0spread>0.30){add('兴奋',0.9);add('紧张/不安',0.7);add('亲昵/撒娇',0.4)}
-    else if(f0med&&f0spread<0.08){add('平静/中性',0.9);add('疲惫',0.3)}
-    if(f0TailDelta>0.10){add('亲昵/撒娇',1.1);add('开心',0.3);add('犹豫/不确定',0.3)}
-    else if(f0TailDelta<-0.10){add('难过/低落',0.5);add('疲惫',0.5);add('平静/中性',0.3)}
-    if(soft){add('亲昵/撒娇',0.7);add('平静/中性',0.7);add('疲惫',0.3)}
-    if(strong&&rate>fastThr){add('愤怒/激动',0.9);add('兴奋',0.8)}
-    if(energyCv>0.75){add('兴奋',0.5);add('紧张/不安',0.4);add('愤怒/激动',0.3)}
-    else if(energyCv<0.35){add('平静/中性',0.7);add('疲惫',0.2)}
-    if(endingSoft&&soft&&f0TailDelta>0.05)add('亲昵/撒娇',1.2);
+    if(meanDb<-25){addA('疲惫',1.1);addA('难过/低落',0.8);addA('亲昵/撒娇',0.4)}
+    else if(meanDb>-13){addA('兴奋',1.2);addA('愤怒/激动',1.1);addA('开心',0.5)}
+    if(pauseRatio>0.40||longPauses>=3){addA('疲惫',1.2);addA('难过/低落',0.9);addA('紧张/不安',0.5)}
+    else if(pauseRatio<0.12){addA('开心',0.4);addA('兴奋',0.4)}
+    if(f0spread>0.30){addA('兴奋',0.9);addA('紧张/不安',0.7);addA('亲昵/撒娇',0.4)}
+    else if(f0med&&f0spread<0.08){addA('平静/中性',0.9);addA('疲惫',0.3)}
+    if(f0TailDelta>0.10){addA('亲昵/撒娇',1.1);addA('开心',0.3);addA('犹豫/不确定',0.3)}
+    else if(f0TailDelta<-0.10){addA('难过/低落',0.5);addA('疲惫',0.5);addA('平静/中性',0.3)}
+    if(soft){addA('亲昵/撒娇',0.7);addA('平静/中性',0.7);addA('疲惫',0.3)}
+    if(strong&&rate>fastThr){addA('愤怒/激动',0.9);addA('兴奋',0.8)}
+    if(energyCv>0.75){addA('兴奋',0.5);addA('紧张/不安',0.4);addA('愤怒/激动',0.3)}
+    else if(energyCv<0.35){addA('平静/中性',0.7);addA('疲惫',0.2)}
+    if(endingSoft&&soft&&f0TailDelta>0.05)addA('亲昵/撒娇',1.2);
     const ranked=Object.keys(score).sort(function(a,b){return score[b]-score[a]});
     const top=ranked[0],second=ranked[1],topScore=score[top],gap=topScore-score[second];
     let emotion=top;
-    if(topScore<2.2)emotion='平静/中性';
+    if(topScore<(textHit?2.2:1.9))emotion='平静/中性';
     else if(score[second]>=2.8&&gap<0.9&&second!=='平静/中性')emotion=top+'，兼有'+second;
-    const confidence=(topScore>=6&&gap>=1.2)?'较高':topScore>=3.5?'中等':'较低';
+    let confidence=(topScore>=6&&gap>=1.2)?'较高':topScore>=3.5?'中等':'较低';
+    if(rich&&rich.emo&&!(/^平静$/.test(String(rich.emo))&&textHit)){var ce9=_vmEmoCatM(rich.emo);if(ce9){emotion=ce9;confidence='较高'}}/* v351-p：模型听出的情绪优先；它只说「平静」而文字里明明有情绪词时听文字的 */
 
-    const parts=['情绪倾向:'+emotion+'('+confidence+'置信)'];
+    const parts=['情绪倾向:'+emotion+'('+confidence+'置信)'];if(ev.length)parts.push('声音:'+ev.join('、'));
     if(voice.length)parts.push('声线/变化:'+voice.slice(0,4).join('、'));
     parts.push(rateDesc,volumeDesc,pauseDesc);
     if(f0med)parts.push('基频约'+Math.round(f0med)+'Hz'+(reg9?('·'+reg9):''),pitchDesc);
     return parts.filter(Boolean).join('；');
-  }catch(e){return ''}
+  }catch(e){return richOnly()}
 }
 var _vmAudio=null,_vmCur=null;
 function _vmToggle(el,v){
@@ -21470,9 +21547,9 @@ function p2(x){return (x<10?'0':'')+x}
 window._memQxM=async function(cfg,q,myMsgs,names){var t0=Date.now();
   try{var api=cfg;try{if(typeof _ibStewardApiM==='function')api=await _ibStewardApiM(cfg)}catch(e){}if(!api||!api.apiKey)return null;
     var u='';try{u=String((typeof _amUserName==='function'&&_amUserName())||'')}catch(e){}u=u||'用户';var ta=String((typeof cfgName==='function'&&cfgName(cfg))||'TA');
-    var arr=(myMsgs||[]).filter(function(m){return m&&(m.role==='user'||m.role==='assistant')&&!m.seeStep&&typeof m.content==='string'&&m.content.trim()});
+    var arr=(myMsgs||[]).filter(function(m){return m&&(m.role==='user'||m.role==='assistant')&&!m.seeStep&&((typeof m.content==='string'&&m.content.trim())||(m.role==='user'&&m.voice&&m.voice.transcript))});/* v351-p：语音消息（正文空、文字稿在 voice 里）也算近几句 */
     if(arr.length&&arr[arr.length-1].role==='user')arr=arr.slice(0,-1);
-    var hist=arr.slice(-6).map(function(m){return (m.role==='user'?u:ta)+'：'+String(m.content).replace(/<\/?ws_[^>]*>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}).join('\n');
+    var hist=arr.slice(-6).map(function(m){return (m.role==='user'?u:ta)+'：'+String(m.role==='user'?_uQTextM(m):m.content).replace(/<\/?ws_[^>]*>/g,' ').replace(/\s+/g,' ').trim().slice(0,200)}).join('\n');
     var d=new Date(),day=d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())+' 周'+'日一二三四五六'.charAt(d.getDay());
     var body=QX_T.replace('{DAY}',day).replace('{HIST}',hist||'（前面没有对话）').split('{U}').join(u).replace('{Q}',String(q||'').slice(0,400));
     var clean=Object.assign({},api,{systemPrompt:'',streaming:false,thinkingEnabled:false,promptCache:false,webSearch:false}),ac=new AbortController(),tm=setTimeout(function(){try{ac.abort()}catch(e){}},2500),r=null;
@@ -27662,15 +27739,18 @@ body.theme-infernal .ibcl .e-btn:disabled{background:rgba(255,255,255,0.08);box-
 </style>
 <script>
 
+function _vmEmoCatM(emo){/* v351-p：模型给的情绪词（顿号分开）→ 本机情绪类目串（最多两个，「，兼有」连接） */
+  try{var MAP={'开心':'开心','兴奋':'兴奋','平静':'平静/中性','难过':'难过/低落','疲惫':'疲惫','紧张':'紧张/不安','生气':'愤怒/激动','撒娇':'亲昵/撒娇','惊讶':'惊讶','犹豫':'犹豫/不确定','厌恶':'厌恶'};var out=[];String(emo||'').split(/[、，,;；/\s]+/).forEach(function(x){x=x.trim();var c=MAP[x]||'';if(c&&out.indexOf(c)<0)out.push(c)});if(!out.length)return '';return out[0]+(out[1]?('，兼有'+out[1]):'')}catch(e){return ''}}
 function _vmToneNatural(tone){
   try{
     var str=String(tone||'').trim();if(!str)return '';
-    var EMO={'亲昵/撒娇':'语气亲昵、带点撒娇','开心':'语气开心','兴奋':'语气兴奋','愤怒/激动':'语气激动','难过/低落':'语气低落','疲惫':'听起来有些疲惫','紧张/不安':'语气有些紧张不安','犹豫/不确定':'语气有些犹豫','平静/中性':'语气平静'};
+    var EMO={'亲昵/撒娇':'语气亲昵、带点撒娇','开心':'语气开心','兴奋':'语气兴奋','愤怒/激动':'语气激动','难过/低落':'语气低落','疲惫':'听起来有些疲惫','紧张/不安':'语气有些紧张不安','犹豫/不确定':'语气有些犹豫','平静/中性':'语气平静','惊讶':'语气惊讶','厌恶':'语气里有点嫌弃'};
     var EMO2={'亲昵/撒娇':'撒娇','开心':'开心','兴奋':'兴奋','愤怒/激动':'激动','难过/低落':'低落','疲惫':'疲惫','紧张/不安':'不安','犹豫/不确定':'犹豫','平静/中性':'平静'};
     var out=[];
     str.split(/[；;]/).forEach(function(seg){
       seg=seg.trim();if(!seg)return;var m9;
       if((m9=seg.match(/^情绪倾向[:：](.+)$/))){var e9=m9[1].replace(/[\(（](?:较高|中等|较低)置信[\)）]\s*$/,'').trim().split(/，兼有|,兼有/);var a9=EMO[e9[0].trim()]||('语气'+e9[0].trim().replace(/\//g,'、'));if(e9[1]){var b9=e9[1].trim();a9+='，也有点'+(EMO2[b9]||b9.replace(/\//g,'、'))}out.push(a9);return}
+      if((m9=seg.match(/^声音[:：](.+)$/))){var EVN={'笑':'中间有笑声','笑?':'像是笑了','咳嗽':'咳嗽了几声','咳嗽?':'可能咳嗽了','叹气':'叹了口气','叹气?':'像是叹了口气','哭腔':'带着哭腔','哭腔?':'可能带着哭腔','清嗓':'清了清嗓子','吸鼻子':'吸了吸鼻子','打哈欠':'打了个哈欠','喘':'喘着气','沉默':'中间沉默了一会儿'};m9[1].split('、').slice(0,4).forEach(function(x){x=x.trim();if(!x)return;out.push(EVN[x]||('有'+x.replace(/\?$/,'')+'声'))});return}/* v351-p：声音事件 */
       if((m9=seg.match(/^声线\/变化[:：](.+)$/))){m9[1].split('、').slice(0,3).forEach(function(v9){v9=v9.trim();if(v9&&!/\d/.test(v9))out.push(v9)});return}
       var t9=seg.replace(/\([^)]*\)/g,'').replace(/（[^）]*）/g,'').trim();
       if(/^语速/.test(t9)){if(/偏慢|偏快/.test(t9))out.push(t9);return}
@@ -28513,7 +28593,7 @@ async function finishUtter(st0){
   const blob=new Blob([_ibcWavEncode(chunks,SR)],{type:'audio/wav'});
   setState('asr','听清中…');
   let text='';
-  try{text=await callASR(blob)}
+  let rx9=null;try{rx9=await callASR(blob);text=String((rx9&&rx9.text)||'')}/* v351-p：{text,ev,emo} */
   catch(err){
     if(!isOpen)return;
     setCap('','识别失败：'+String((err&&err.message)||err).slice(0,60)+'（检查语音转写接口）');
@@ -28521,32 +28601,22 @@ async function finishUtter(st0){
   }
   if(!isOpen)return;
   text=String(text||'').trim();
+  if(!text&&rx9&&rx9.ev&&rx9.ev.length){var exv9=rx9.ev.filter(function(x){return /^(笑|哭腔|叹气)$/.test(x)});if(exv9.length)text='（'+exv9.join('、')+'）'}/* v351-p：只有笑 / 哭腔 / 叹气、没有话时也发一轮，TA 能接住 */
   if(!text){setCap('','没听清，再说一次？');setState('listen','正在听…');return}
   var tone9='';
   try{
     var tl9=0,i9;for(i9=0;i9<chunks.length;i9++)tl9+=chunks[i9].length;
-    if(tl9>SR*0.6){
+    if(tl9>SR*0.6||(rx9&&((rx9.ev&&rx9.ev.length)||rx9.emo))){
       var flat9=new Float32Array(tl9),o9=0;
       for(i9=0;i9<chunks.length;i9++){var ck9=chunks[i9];for(var j9=0;j9<ck9.length;j9++)flat9[o9+j9]=ck9[j9]/32768;o9+=ck9.length}
-      tone9=_vmToneAnalyze({sampleRate:SR,numberOfChannels:1,length:tl9,duration:tl9/SR,getChannelData:function(){return flat9}},text)||'';
+      tone9=_vmToneAnalyze({sampleRate:SR,numberOfChannels:1,length:tl9,duration:tl9/SR,getChannelData:function(){return flat9}},text,rx9)||'';
     }
   }catch(e9){}
   setCap('你：'+text,'');
   sendOut(text,tone9);
 }
 async function callASR(blob){
-  const vt=await loadVT();
-  const fd=new FormData();
-  fd.append('file',blob,'call.wav');
-  fd.append('model',vt.model||'whisper-1');
-  const ac=new AbortController();const tm=setTimeout(function(){ac.abort()},25000);
-  try{
-    const res=await fetch(vtUrl(vt.endpoint),{method:'POST',headers:{'Authorization':'Bearer '+vt.apiKey},body:fd,signal:ac.signal});
-    clearTimeout(tm);
-    const raw=await res.text();
-    if(!res.ok)throw new Error('HTTP '+res.status);
-    try{const j=JSON.parse(raw);return j.text||(j.data&&j.data.text)||''}catch(e){return raw.trim()}
-  }catch(err){clearTimeout(tm);throw (err&&err.name==='AbortError'?new Error('超时'):err)}
+  try{return await vtTranscribeX(blob,'audio/wav')}catch(err){throw (err&&err.name==='AbortError'?new Error('超时'):err)}
 }
 async function sendOut(text,tone){
   if(!isOpen)return;
