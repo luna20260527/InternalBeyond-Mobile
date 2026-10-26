@@ -27,8 +27,8 @@
 </div>
 
 > [!TIP]
-> IB-M是一个单文件PWA个人Agent应用，兼备多种工作技能与创意玩法，可同时对接多位自定义Agent助手，每一位Agent都具备与用户的长期独立记忆。
-> **所有数据储存在本地浏览器，用户数据与记忆内容公开透明。支持完整的数据导入和导出，不依赖任何网络服务器**；可导入其他官端的聊天记录，如ChatGPT/Claude。手机端与桌面端 [Internal Beyond](https://github.com/Sui-IB/InternalBeyond) 使用同一套用户数据备份。
+> IB-M是一个单文件PWA个人Agent应用，兼备多种工作技能与创意玩法，可同时对接多位自定义Agent助手。
+> **所有用户数据储存在本地浏览器，支持完整的数据导入和导出，公开透明，不依赖任何网络服务器**；可导入其他官端的聊天记录，如ChatGPT/Claude。手机端与桌面端 [Internal Beyond](https://github.com/Sui-IB/InternalBeyond) 使用同一套用户数据备份。
 
 <!-- 宣传图 / 截图：把图片拖进本仓库任意 Issue 的输入框，GitHub 会生成一条图片链接；替换下面的链接后删掉这两行注释符号即可。建议三张竖屏截图并排。
 <p align="center">
