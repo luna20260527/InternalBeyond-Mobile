@@ -27,8 +27,8 @@
 </div>
 
 > [!TIP]
-> IB-M是一个单文件PWA个人Agent应用，兼备多种工作技能与创意玩法，可同时对接多位自定义Agent助手。
-> **所有用户数据储存在本地浏览器，支持完整的数据导入和导出，公开透明，不依赖任何网络服务器**；可导入其他官端的聊天记录，如ChatGPT/Claude。手机端与桌面端 [Internal Beyond](https://github.com/Sui-IB/InternalBeyond) 使用同一套用户数据备份。
+> IB-M（Internal Beyond · Mobile）是一个单文件 PWA 个人 Agent 应用，可以同时接入多位自定义 Agent：与你的Agent聊天、通话、写信、一起听歌读书，也可以读写文件、生成文档、调用外部工具。
+> **源代码公开；所有数据只存在你自己的浏览器里，IB 没有后端服务器，对话只发往你自己配置的 AI 接口。** 支持完整的备份与恢复，能导入 ChatGPT / Claude 的官方聊天记录导出；与桌面端 [Internal Beyond](https://github.com/Sui-IB/InternalBeyond) 共用同一套备份格式，两端数据互通。
 
 <!-- 宣传图 / 截图：把图片拖进本仓库任意 Issue 的输入框，GitHub 会生成一条图片链接；替换下面的链接后删掉这两行注释符号即可。建议三张竖屏截图并排。
 <p align="center">
@@ -56,7 +56,8 @@
 
 **记忆与记录**
 
-- **Memory** · AGB 记忆系统（The Abyss Gazing Back）：记忆库 + 每位 AI 独立维护的记忆档案，聊到才想起、每轮只给相关的几条；Nameless Coastline 海岸可视化、脉络、透视区可查可纠
+- **Memory** · AGB 记忆系统（The Abyss Gazing Back）：记忆库 + 每位 AI 独立维护的记忆档案，聊到才想起、每轮只给相关的几条；Nameless Coastline 海岸可视化、脉络、透视区可查可纠；记忆可以连着一张照片
+- **Gallery** · 相册：聊天里的图、TA 画的图、社交圈配图、主题方案背景与 Space 素材收在一处，按时间轴与相册翻看，能把图连同当时的对话发给 TA
 - **Blog** · 日志、密码日记本、分类书架，AI 留言与段落批注
 - **Calendar** · 日历 App 与月历挂件，TA 记得你的纪念日、计划与生理期
 - **Circle** · 你与 AI 共享的社交圈：动态、评论、转发，逐条可见范围
@@ -74,7 +75,7 @@
 - **Home** · 伪 iOS 主屏：分页桌面、液态玻璃名片、AI 名片
 - **Lock** · iOS 式锁屏，自适应取色的时刻、图案锁与密保
 - **Visual** · 全站视觉个性化：分区玻璃与分区文字色、主题方案、美化码、气泡实验室
-- **API · DIY** · 多端口配置中心、Presence 定时推送，外部工具 / 蓝牙 / MCP 接入
+- **API · 扩展服务** · 多端口模型配置中心、Presence 定时推送；外部工具 / 蓝牙 / MCP 接入
 - **Data** · 一键备份与两端互导，导入 ChatGPT / Claude 官方聊天记录
 
 <sub>每个模块的完整说明在下方「模块详情」，点开即看。</sub>
@@ -162,7 +163,7 @@ Desk / Space / Circle 三面板经底栏切换，设置从第四格进入。Desk
 
 **Wallet Card**
 
-- DIY 页「AI付」分区顶部专属卡片（哑光低饱和渐变 + 纸感颗粒 + 静态斜向柔光 + ±11° 缓慢摆动），显示 Space 昵称与好友名；聊天里的 AI付 支付卡顶部随卡出示紧凑版。
+- 扩展服务页「AI付」分区顶部专属卡片（哑光低饱和渐变 + 纸感颗粒 + 静态斜向柔光 + ±11° 缓慢摆动），显示 Space 昵称与好友名；聊天里的 AI付 支付卡顶部随卡出示紧凑版。
 
 </details>
 
@@ -219,13 +220,24 @@ Blog 是创作空间：日记、剧本、搜索、阅读进度，密码日记本
 </details>
 
 <details>
+<summary><b>Gallery</b> · 相册与图片记忆</summary>
+
+**Gallery**：所有图收在一处——你发的、TA 画的、视频通话截的、工具带回的、社交圈配图、主题方案背景、观影室存下的那一帧，以及 Space 页的封面图、作品集和你与 TA 的头像（各存一份副本）
+
+侧栏「相册」进入，分预览、时间轴、相册三格：预览是一面可以左右拨的照片墙，往上滑看这张图的来处与细节；时间轴按天排，一天超过九张横着拨；相册按图从哪里来分本。长按一张出菜单：选择、重命名、看原文出处、删除（删除可撤销；聊天里的消息和卡片都留着，图的位置换成「图片已删除」）。聊天附件菜单「从 Gallery 发送图片」能把图连同名字、入库时间和当时的几句对话一起发给 TA。同一张图只存一份，删掉的副本不会再自动存回来；相册的目录只存本机、随时能从聊天记录重建，没打开过相册时它什么都不做、不占地方。
+
+**图片记忆**：在 API 页那位 TA 的独立配置 → Memory 卡里打开。TA 写记忆时可以把这一轮看到的某张图一起记下，并给它起一个名字（成为它在 Gallery 里的名字，你自己改过的保留你的）；以后想起这条记忆，资料里会写明这张照片，可以选择把照片本身也带给 TA。记忆详情里能看照片或「拿掉照片」。
+
+</details>
+
+<details>
 <summary><b>Music</b> · 音乐</summary>
 
 **Music**：全屏黑胶听歌界面 — 唱臂落盘、封面糊化为背景、逐句滚动歌词（.lrc / .srt / .vtt）、播放队列；**一起听**：邀请一位 AI 共享正在播放并累计时长；**网易云音乐模式**：登录自己的账号听歌单 / 红心 / 每日推荐 / 私人 FM / 听歌排行，AI 可按授权点歌、切歌单、红心、管理歌单（需自建跨域中转）；**QQ 音乐模式**：微信扫码 / QQ 扫码 / 粘贴凭证登录，我喜欢 / 自建与收藏的歌单 / 猜你喜欢 / 雷达 / 榜单 / 搜歌，官方接口允许网页直连、不需要中转（只有扫码登录需要）；**迷你播放器**：离开听歌界面后留一枚可拖动的小唱机（封面盘 · 唱臂 · 曲名 · 歌手 · 当前歌词）
 
 黑胶唱片带唱臂，封面印在盘芯并糊化为背景，左侧大字歌名与逐句滚动歌词，五键控制与播放队列。「一起听」邀请一位 AI 共享正在播放：头像对、实时累计时长，TA 会在对话中知道你正与 TA 听这首歌。
 
-网易云音乐模式：顶栏右上角「＋」选「网易云音乐」，登录自己的账号（扫码 / 手机号 / 粘贴 MUSIC_U），歌单、红心、每日推荐、私人 FM、听歌排行与搜歌都能直接载入队列，歌词按网易云逐句歌词显示；VIP 曲目能不能完整播放取决于这个账号。浏览器不能直接访问网易云接口，需要经过你自己部署的 Cloudflare Worker（GUIDE → DIY 提供可直接粘贴的代码）：默认沿用 DIY → MCP 卡「跨域中转」里那条，也可以在网易云登录页单独填一条；账号只存本机、请求只经你自己的中转。开启 Presence「允许 AI 控制播放器」后，网易云页底部可逐项开放 AI 点歌、切歌单、红心、加进 / 移出歌单、新建歌单、改简介。QQ 音乐模式：「＋」的第三档。登录三条路——微信扫码、QQ 扫码（只有一台手机时截图后在扫一扫里选相册）、或粘贴凭证（电脑浏览器登录 y.qq.com 后从 Cookie 里复制 uin 与 qqmusic_key）；我喜欢、自建与收藏的歌单、猜你喜欢、雷达推荐、热歌榜 / 新歌榜与搜歌都能载入队列，音质四档按账号权限自动降档，歌词带翻译。QQ 音乐的官方接口允许网页直接调用、凭证放在请求体里，所以听歌不需要任何中转、也从你自己的 IP 发出；只有扫码登录要经跨域中转（微信扫码用现有 Worker 即可，QQ 扫码要 GUIDE → DIY 里的 v4 版），粘贴凭证完全不需要。AI 控制与网易云同一套（无改简介）。为此 index.html 的 CSP 放行了 u.y.qq.com 与 lp.open.weixin.qq.com 两个主机的脚本加载。迷你播放器：歌名右侧爱心旁的小图标，打开后离开听歌界面时屏幕上留一枚液态玻璃小唱机（有封面就整盘贴封面转，唱臂落盘），显示曲名、歌手与当前一句歌词（超长就整段滚动），点它回到听歌界面，按住可拖到任意位置。手机不给力时开 Visual 的「减少动效」，听歌界面整套走轻量路径。
+网易云音乐模式：顶栏右上角「＋」选「网易云音乐」，登录自己的账号（扫码 / 手机号 / 粘贴 MUSIC_U），歌单、红心、每日推荐、私人 FM、听歌排行与搜歌都能直接载入队列，歌词按网易云逐句歌词显示；VIP 曲目能不能完整播放取决于这个账号。浏览器不能直接访问网易云接口，需要经过你自己部署的 Cloudflare Worker（GUIDE → 扩展服务 提供可直接粘贴的代码）：默认沿用 扩展服务 → MCP 卡「跨域中转」里那条，也可以在网易云登录页单独填一条；账号只存本机、请求只经你自己的中转。开启 Presence「允许 AI 控制播放器」后，网易云页底部可逐项开放 AI 点歌、切歌单、红心、加进 / 移出歌单、新建歌单、改简介。QQ 音乐模式：「＋」的第三档。登录三条路——微信扫码、QQ 扫码（只有一台手机时截图后在扫一扫里选相册）、或粘贴凭证（电脑浏览器登录 y.qq.com 后从 Cookie 里复制 uin 与 qqmusic_key）；我喜欢、自建与收藏的歌单、猜你喜欢、雷达推荐、热歌榜 / 新歌榜与搜歌都能载入队列，音质四档按账号权限自动降档，歌词带翻译。QQ 音乐的官方接口允许网页直接调用、凭证放在请求体里，所以听歌不需要任何中转、也从你自己的 IP 发出；只有扫码登录要经跨域中转（微信扫码用现有 Worker 即可，QQ 扫码要 GUIDE → 扩展服务 里的 v4 版），粘贴凭证完全不需要。AI 控制与网易云同一套（无改简介）。为此 index.html 的 CSP 放行了 u.y.qq.com 与 lp.open.weixin.qq.com 两个主机的脚本加载。迷你播放器：歌名右侧爱心旁的小图标，打开后离开听歌界面时屏幕上留一枚液态玻璃小唱机（有封面就整盘贴封面转，唱臂落盘），显示曲名、歌手与当前一句歌词（超长就整段滚动），点它回到听歌界面，按住可拖到任意位置。手机不给力时开 Visual 的「减少动效」，听歌界面整套走轻量路径。
 
 </details>
 
@@ -285,16 +297,16 @@ GUIDE 页右上角的「?」圆钮（主题水滴左侧）与说明书第一块�
 </details>
 
 <details>
-<summary><b>Visual · API · DIY</b></summary>
+<summary><b>Visual · API · 扩展服务</b></summary>
 
-**Visual**：视觉个性化 — 全站与聊天背景、全站色调、字号与投影、气泡材质、桌面挂件材质与尺寸、装饰小组件、更多绑定项，4 个方案槽一键回切；**Bubble Lab**（气泡实验室）：与 AI 对话式设计专属聊天气泡
+**Visual**：视觉个性化 — 网站、界面与聊天三张背景、全站色调、字号与投影、气泡材质、桌面挂件材质与尺寸、装饰小组件、更多绑定项，10 个方案槽一键回切；**Bubble Lab**（气泡实验室）：与 AI 对话式设计专属聊天气泡
 
 **API**：多端口配置中心 — 独立配置（昵称 / 关系 / 提示词 / 逐项权限 / 接口预设）、全局设置（语音通话系统 / 记忆系统 / 输出与续写 / 进阶指令）、工具（语音转写 / 图像生成 / AI付 / PWA 预留）、Presence 定时推送与勿扰
 
-**DIY**：外部工具（HTTP 接口）、蓝牙与 MCP 服务器接入，支持调用前确认
+**扩展服务**（Plugins，原 DIY）：外部工具（HTTP 接口）、蓝牙与 MCP 服务器接入，支持调用前确认；MCP 工具回传的图片直接显示在工具卡上
 
-Visual 分基础 / 文字 / 气泡 / 桌面四区，含全站色调整套更换与 4 个视觉方案槽；手机端视觉偏好独立于电脑端。Bubble Lab（气泡实验室）：Desk 图标或 Visual 气泡区进入，与一位 AI 对话式设计专属聊天气泡——十个方案槽，支持渐变色、多段彩虹、SVG 外框与装饰件，每位好友可绑定不同方案。
-DIY 配置外部 HTTP 工具与 MCP 服务器（浏览器直发请求，目标接口需允许 CORS）。
+Visual 分基础 / 文字 / 气泡 / 桌面四区，含全站色调整套更换与 10 个视觉方案槽；手机端视觉偏好独立于电脑端。Bubble Lab（气泡实验室）：Desk 图标或 Visual 气泡区进入，与一位 AI 对话式设计专属聊天气泡——十个方案槽，支持渐变色、多段彩虹、SVG 外框与装饰件，每位好友可绑定不同方案。
+扩展服务里配置外部 HTTP 工具与 MCP 服务器（浏览器直发请求，目标接口需允许 CORS）。
 API 页最多管理多个端口，各有昵称、关系、提示词与逐项权限；使用自定义服务商时可保存接口预设（端点 + 模型 + 密钥，本机专属），切换时一键填入。
 Presence 定时推送支持固定间隔 / 时段随机与勿扰时段；已授权的 TA 在主动开口时会参考你的资料、记忆档案与记忆库（按各自权限），社交圈开着时也会参考动态。
 
@@ -383,35 +395,52 @@ COPYRIGHT.md          ← 完整版权与许可声明
 
 ## ✦ 最近更新
 
-v377：桌面格子分页——每页改成 12 列 × R 行的等高格子，行高按可用高度铺满一页；每件占整数格，页内按 CSS grid dense 从左上找第一个空位，放不下顺延下一页；首页固定组成与显式页位照旧，撑不下时压行高（最矮 58）、整页等比缩小；页码点离底坞留 12px，底坞 / 顶栏变大小时重铺；各件贴满自己的格子、内容按格子重排；名片卡暗色时爱心蕾丝改偏黑银色。经典滚动模式不动。
+**v405** · 2026-10-29
+- Visual → Wallpaper 新增「界面背景图」：Desk、Space 以外的页面（音乐、日历、会话窗也在内）可以单独换一张背景，没设时跟网站背景；它有自己的一条模糊滑杆，主题方案会一并存下它。
 
-v376：备份互通——备份里本版不认识的分段（别的版本留下的功能）不再跳过：导入时原样存进设置表，导出时还原成同名分段一并带回；Data 页导入 / 导出各多一行「其他版本的数据」、可取消勾选；GUIDE「不认识的模块自动跳过」改为原样保留。
+**v404** · 2026-10-29
+- 图片不再反复存：几套主题方案用同一张背景时只存一份；以前多存的，下次打开相册时自动合并。
+- Space 页与头像存进相册的那一份，在相册里删掉后不会再自动存回来；从相册里挑图换头像、封面、作品集，也不再另存一份。
+- 相册：界面大小不是 100% 时预览详情排版错位（图贴着顶栏、下面空出一截）修好，左右拨与长按菜单也跟手了；详情里图片与文字之间留得更开；分隔线换成更细的渐隐线。
+- 图片记忆「带图」时，一轮里连发几条消息，下一轮的提示缓存照常命中。
+- Data 页的媒体库用量把「Space 与头像」单独列出。
 
-v375：日历区传统节日与二十四节气补齐——固定节日（妇女节 / 植树节 / 劳动节 / 青年节 / 建军节 / 教师节 / 国庆节等）、母亲节（5 月第二个周日）/ 父亲节（6 月第三个周日），二十四节气每一个都进传统节日提醒；名片卡排版照 A 线：昵称衬线 1.28rem、签名细黑体 .82rem、文字区从心形头像下 10px 起算，自定义字段斜体衬线两行截断，卡高 268→296。
+**v400 – v403**
+- Space 页的封面图、作品集与你和 TA 的头像会在相册里各存一份（「Space」「头像」两本），删相册里的副本不影响 Space 页。
+- Space 页多一项「选图来源」：换头像、封面、作品集，以及 API 页换 TA 头像时，可以直接从相册里挑一张。
+- 回到相册时先显示上次的内容，不再空等读取。
+- 名片卡：心形头像外圈换成一根细细的透明线框。
 
-v374：装饰小组件第九款「名片卡」——尺寸固定整行；读 Space 资料背景图与头像，明暗两套图切主题换图不重画；上半 Space 背景、下半玻璃材质，心形头像骑在分界线上（白色蕾丝相框、CSS mask 裁心形）；昵称 / 签名 / 自定义文字限中间六成宽，缺行不占位；背景图层自带圆角不靠父级裁切；Space 保存后桌面名片卡自动重画。
+**v397 – v399** · 相册与图片记忆
+- 新增 **Gallery 相册**：预览墙、时间轴、按来源分本的相册三种看法；长按选择、重命名、看原文出处、删除（可撤销）。
+- 聊天附件菜单「从 Gallery 发送图片」：名字、入库时间与当时的对话可以一起带给 TA。
+- **图片记忆**：TA 写记忆时可以把这一轮看到的图一起记下、给图起名；想起时看得到这张照片。
+- 顶栏、底栏调成透明时，相册里的雾改取壁纸本身的颜色。
 
-v373：上下文条数与改昵称——条数调大当场生效（原话窗口起点本机另记按几条立的，调大时按最近 N 条重立）；改了 TA 昵称后旧数据跟新名字显示（按 id 取现名，库里旧名不改、两端互导照旧），群聊历史、引用、摘要、记忆、通话、Blog、留言、Beyond、收藏夹、导出等处一并同步。
+**v390 – v396**
+- MCP 工具可以回传图片：工具卡里直接显示，能识图的模型也看得到原图。
+- 清除聊天图片时，TA 画的图与工具卡缩略图一起清；消息与卡片保留，图的位置标「图片已删除」。
+- 生图卡、ICode、Data 页与 MCP 回图的性能优化；ICode 全工作区检索不再一次读进整个项目。
+- 密码日记本的分类与公开 Blog 分开存（与电脑端一致）。
+- 追加式历史扩到带图的消息；Exa 搜索预设带上高级搜索。
 
-v372：Visual 配色与智谱收口——分区文字色卡按分区玻璃五组分组（通用 9 / 导航抽屉 1 / 聊天与通话 5 / 桌面 3 / 功能页 8）；旧卡与本卡同区设置时补更重的规则；按主题分开存的键表每次查最新；取色器取消后还原落库；主题方案补带会话顶栏与全局顶栏样式；色盘去重；智谱改动收口——换路 / 中转 / 地址补全只对智谱，别家照旧直连。
+**v382 – v389**
+- DeepSeek 与 OpenAI 官方接口改用追加式历史：每一轮都是上一轮的严格延长，提示缓存命中更稳。
+- 粘贴长文本自动收成一张附件，发送前可以查看、修改或放回输入框。
+- 主题方案一并保存自定义图标；导出备份可以单独带上「主题方案」。
+- 日历权限拆成「读取日程」「留下便笺」「相遇纪念日提醒」三项，各自开关；传统节日提醒所有 TA 都能收到。
+- 页面改名：API 页叫「模型配置」，DIY 改叫「扩展服务」。
+- 语音条描边、引用块与「对话」图标跟随 Visual 配色；通话结束卡与视频通话快照的细节修整。
 
-v371：配色「设着设着跳回默认」根修——回到前台清标记后 saveMP 补读合并换新对象、没装按主题分开存的访问器，配色全读成没设过；现在读库 / 补读合并换对象时当场装回访问器；分区文字色自定义取色取消能还原。
+**v378 – v381**
+- Desk 格子桌面二版：页高按界面大小换算，小组件按内容占格，图标与挂件尺寸重排；Chat 图标换成圆形对话框。
+- 名片卡暗色配色调整。
 
-v370：智谱发消息秒报 Failed to fetch——原因是智谱跨域预检不再放行、POST 没发出去（拉模型是 GET 所以能拉）；发消息传输抽成 _apiPostM：直连网络层失败时依次改纯文本格式 → 跨域中转，通了的路记进内存；报错写明原因并指向跨域中转。
-
-v369：智谱 Failed to fetch 地址补全——OpenAI 兼容格式填 Base URL 时发消息地址自动补 /chat/completions（拉模型能拉、发消息发到不存在地址的问题）；网络层失败报错写明请求地址与可能原因。
-
-v368：智谱（GLM）消息发不出去——glm-4-flash 封顶 4095 tokens（原来默认发 32768 必败）；推理强度按型号放行；智谱 400 且业务码 1210 / 1214 时逐层去参重发（先去推理强度，再去 prompt_cache_key 等），成功后本次运行按精简请求发。
-
-v367：落款 / 雾隐顶栏恢复原来的淡出——撤掉「消息在顶栏下一刀切」做法，改在消息上面、雾下面放一条只有顶部那截高的「背景复刻条」，雾与顶栏透明度 / 模糊强度重新起作用；API 设置「启用思考链」改名「启用思路笔记」。
-
-v366：独立配置 · 模型行为新增「推理强度」——每位 TA 一项，按服务商与报文格式现排选项（Anthropic / DeepSeek / OpenAI / Grok / Gemini / GLM / 千问 / 豆包 / Kimi / Mistral 等），空＝不发、与之前完全一样；只跟 TA 自己的回复，后台任务不带；型号或中转不认所选的档时去掉重发一次并提示；GUIDE 加「推理强度」一段。
-
-v365：Blog 分类区蓝色渐变左右对调撤回；Letters 拆信 / 收起动画撤掉（太卡），点击换回直接切换、信纸轻淡入；Blog 阅读页顶栏「Blog」不居中修好（阅读页露出汉堡键）；气泡工作室「基础调整」加「我方 / TA」切换键，每边各自颜色与十二条拉条，饱和度每边各一个，预览垫聊天背景、拖动只重写预览松手才存；雾隐顶栏下气泡毛玻璃不糊修好（特效「高」时撤蒙版、列表顶边下移）。
+更早的更新记录在 `index.html` 开头的修订单里。
 
 ## ✦ Introduction (EN)
 
-**Internal Beyond · Mobile** is the mobile-native twin of Internal Beyond: a fully offline, single-file personal website app designed to preserve emotional continuity. Fifteen modules, a built-in reading room (Coread) plus one installable desktop app (Cinema), two visual themes, all data stored locally in your browser, sharing one backup format with the desktop edition. Free and open source.
+**Internal Beyond · Mobile** is the mobile-native twin of Internal Beyond: a single-file PWA personal agent app, designed to preserve emotional continuity. Connect several custom agents at once — chat, call, exchange letters, listen and read together — or let them read and write files, generate documents and call external tools. The source is public; all data stays in your own browser — IB has no backend server, and conversations go only to the AI endpoints you configure. Full backup and restore, imports of official ChatGPT / Claude exports, and one backup format shared with the desktop edition. Free for non-commercial use.
 
 Connect your own AI API keys to unlock all interactive features. Supports Claude, GPT, DeepSeek, Gemini, and custom relay endpoints.
 
@@ -426,10 +455,11 @@ Connect your own AI API keys to unlock all interactive features. Supports Claude
 - **Blog / Letters** — Journal with AI comments & annotations, password diary, and a category shelf for organizing and filtering entries (AIs can be authorized to write entries); asynchronous AI correspondence with wax-sealed envelopes.
 - **Memory / Auto Memory** — AGB (The Abyss Gazing Back), the long-term memory system: a shared memory library plus per-AI autonomous dossiers about you; eight recall rules inject only what is relevant to the current line, every recall is inspectable and correctable (Gazing Back); Nameless Coastline shore visualization and Strands (thematic threads) in the Fathom view; vector retrieval optional; **Memory Summary** distills a time range of materials into a single dossier entry in one call.
 - **Music** — Vinyl-style fullscreen player with scrolling lyrics and "Listen Together" pairing with an AI; NetEase Cloud Music mode (log into your own account for playlists, likes, daily picks, personal FM and listening charts, with per-action AI control — needs your own CORS relay Worker); **QQ Music mode** (WeChat / QQ QR or pasted credentials; liked songs, own and collected playlists, recommendations, charts and search — its official endpoints accept direct browser calls, so no relay is needed except for QR login); a mini floating player that stays on screen after you leave the music view.
+- **Gallery** — One place for every image: what you sent, what the AI drew, call snapshots, tool results, social-feed photos, theme backgrounds and Space assets; preview wall, timeline and albums; send an image back to an AI together with its context. **Image memories** let an AI keep a photo with a memory and see it again when it remembers.
 - **Coread / Cinema** — Read a journal entry as a book with an AI who only sees the page you are on; watch a local video (with subtitles) together, with frames, captions and snapshots sent alongside each message, bullet comments and fullscreen.
 - **ICode** — Shared file workspace with AI read/write, step confirmation, fine-grained search, DOCX/PDF/XLSX generation, and a built-in GitHub bridge (browse, import, push back).
 - **Import** — Bring in official ChatGPT / Claude exports (the zip itself or conversations.json), other JSON / JSONL logs, or plain-text transcripts with an approximate date range; each conversation lands in its own topic channel, and every import can be undone.
-- **Visual / DIY / API / Data** — Full visual customization with 4 preset slots; **Bubble Lab**: design custom chat bubbles in conversation with an AI (10 scheme slots, per-friend binding); external HTTP tools & MCP servers; multi-endpoint API center with interface presets and Presence scheduling; one-tap JSON backup interchangeable with desktop.
+- **Visual / Plugins / API / Data** — Full visual customization with 10 preset slots; **Bubble Lab**: design custom chat bubbles in conversation with an AI (10 scheme slots, per-friend binding); external HTTP tools & MCP servers; multi-endpoint API center with interface presets and Presence scheduling; one-tap JSON backup interchangeable with desktop.
 
 ### Quick start
 
